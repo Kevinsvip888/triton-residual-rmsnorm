@@ -1,0 +1,157 @@
+{
+  "study": "day11_selected_warp_policy_v1",
+  "tuning_protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+  "kernel_source_sha256": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+  "variant_source_sha256": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9",
+  "contract_sha256": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+  "cases": {
+    "float16_m1_h768": {
+      "dtype": "float16",
+      "M": 1,
+      "H": 768,
+      "num_warps": 1
+    },
+    "float16_m1_h1024": {
+      "dtype": "float16",
+      "M": 1,
+      "H": 1024,
+      "num_warps": 1
+    },
+    "float16_m1_h2560": {
+      "dtype": "float16",
+      "M": 1,
+      "H": 2560,
+      "num_warps": 4
+    },
+    "float16_m1_h4096": {
+      "dtype": "float16",
+      "M": 1,
+      "H": 4096,
+      "num_warps": 16
+    },
+    "float16_m32_h768": {
+      "dtype": "float16",
+      "M": 32,
+      "H": 768,
+      "num_warps": 1
+    },
+    "float16_m32_h1024": {
+      "dtype": "float16",
+      "M": 32,
+      "H": 1024,
+      "num_warps": 1
+    },
+    "float16_m32_h2560": {
+      "dtype": "float16",
+      "M": 32,
+      "H": 2560,
+      "num_warps": 4
+    },
+    "float16_m32_h4096": {
+      "dtype": "float16",
+      "M": 32,
+      "H": 4096,
+      "num_warps": 16
+    },
+    "float16_m2048_h768": {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 768,
+      "num_warps": 4
+    },
+    "float16_m2048_h1024": {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 1024,
+      "num_warps": 4
+    },
+    "float16_m2048_h2560": {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 2560,
+      "num_warps": 4
+    },
+    "float16_m2048_h4096": {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 4096,
+      "num_warps": 4
+    },
+    "bfloat16_m1_h768": {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 768,
+      "num_warps": 1
+    },
+    "bfloat16_m1_h1024": {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 1024,
+      "num_warps": 1
+    },
+    "bfloat16_m1_h2560": {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 2560,
+      "num_warps": 8
+    },
+    "bfloat16_m1_h4096": {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 4096,
+      "num_warps": 16
+    },
+    "bfloat16_m32_h768": {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 768,
+      "num_warps": 1
+    },
+    "bfloat16_m32_h1024": {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 1024,
+      "num_warps": 1
+    },
+    "bfloat16_m32_h2560": {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 2560,
+      "num_warps": 8
+    },
+    "bfloat16_m32_h4096": {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 4096,
+      "num_warps": 16
+    },
+    "bfloat16_m2048_h768": {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 768,
+      "num_warps": 4
+    },
+    "bfloat16_m2048_h1024": {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 1024,
+      "num_warps": 4
+    },
+    "bfloat16_m2048_h2560": {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 2560,
+      "num_warps": 4
+    },
+    "bfloat16_m2048_h4096": {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 4096,
+      "num_warps": 4
+    }
+  },
+  "fallback": "Original launch_config for shapes outside these 24 entries",
+  "selection_rule": "Keep four warps unless the fastest candidate median improves it by at least 3 percent; exact candidate ties choose the smaller warp count",
+  "independent_policy_validation_complete": false,
+  "independent_confirmation_benchmark_complete": false
+}

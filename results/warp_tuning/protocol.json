@@ -1,0 +1,118 @@
+{
+  "study": "day11_warp_tuning_v1",
+  "initial_baseline_sha256": "fa7850c08e1df865cb9e47bf718975f17c4231db395f33696b0c93da274255b6",
+  "initial_protocol_sha256": "71e7a8687a0ac586a4b91835dd868b316ec9859802ecd14e576e3978844d5ea0",
+  "dtypes": [
+    "float16",
+    "bfloat16"
+  ],
+  "M": [
+    1,
+    32,
+    2048
+  ],
+  "H": [
+    768,
+    1024,
+    2560,
+    4096
+  ],
+  "seed": 123,
+  "eps": 1e-06,
+  "warp_candidates": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "baseline_warps": 4,
+  "selection_rule": "Keep four warps unless the fastest candidate median improves it by at least 3 percent; exact candidate ties choose the smaller warp count",
+  "minimum_relative_improvement": 0.03,
+  "captured_calls_per_replay": 64,
+  "replays_per_batch": 100,
+  "batches_per_candidate": 5,
+  "candidate_orders": [
+    [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    [
+      2,
+      4,
+      8,
+      16,
+      1
+    ],
+    [
+      4,
+      8,
+      16,
+      1,
+      2
+    ],
+    [
+      8,
+      16,
+      1,
+      2,
+      4
+    ],
+    [
+      16,
+      1,
+      2,
+      4,
+      8
+    ]
+  ],
+  "warmup_calls": 10,
+  "warmup_replays": 5,
+  "mixed_warmup_seconds": 1.0,
+  "correctness_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "boundary_patterns": [
+    "zero",
+    "cancel",
+    "halfway_up",
+    "halfway_down"
+  ],
+  "unchanged": "kernel body, residual rounding, output contract, fixed tolerances, block size, one stage, FP fusion disabled",
+  "gpu_identity": {
+    "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+    "name": "NVIDIA GeForce RTX 4090",
+    "driver": "580.76.05"
+  },
+  "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+  "packages": {
+    "torch": "2.13.0+cu132",
+    "triton": "3.7.1"
+  },
+  "source_sha256": {
+    "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+    "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+    "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+    "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+    "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+    "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+    "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+    "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+    "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+    "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+    "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+  },
+  "scope": "Configuration search estimates. A frozen selected policy needs separate validation and independent performance confirmation."
+}

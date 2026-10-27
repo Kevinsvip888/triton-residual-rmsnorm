@@ -1,0 +1,2445 @@
+{
+  "scope": "Path-keyed SHA256 references extracted from supplied JSON, plus the named pilot protocol reference; not a complete inventory of all files ever produced",
+  "files": [
+    {
+      "original_path": "logs/day10_memcheck.log",
+      "recorded_sha256": [
+        "218ca70a100ff7a1a7025c91c60d80576cdadc7de9f6b44ae86dce6d75189d47"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "logs/day10_memcheck_exit_code.txt",
+      "recorded_sha256": [
+        "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "logs/day11_selected_policy_memcheck.log",
+      "recorded_sha256": [
+        "9ff68dfec8eab4d3cfc301c5ef02ea7405fe3c541a0665a2c2ca8605cdb33aa1"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "logs/day11_selected_policy_memcheck_exit_code.txt",
+      "recorded_sha256": [
+        "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day10/20261027T105318497159Z/triton_validation.json",
+      "recorded_sha256": [
+        "c5175e26afae51bb8e613e1f2f8f2dc8518eb586394ab8f383b3ff6dfe79798e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day10/20261027T120731591690Z/compiled_matrix_validation.json",
+      "recorded_sha256": [
+        "533e890fc1e34ffdad23c406a283357b52bb4e853a26282f9e85d908a3449858"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h1024/20261027T123215398880Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h1024/20261027T123215398880Z/gpu_after.json",
+      "recorded_sha256": [
+        "1447fe6a5b4b5ee1b4422769811f5e64590f8f34e29383d434cb801fa1090136"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h1024/20261027T123215398880Z/gpu_before.json",
+      "recorded_sha256": [
+        "0e8d2aede55d724c41e284713c8c8a75667a521271b7ee48e93ed5f450b2174e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h1024/20261027T123215398880Z/result.json",
+      "recorded_sha256": [
+        "5b4e6085ccaa220d2fc97fff509af391d42a64021fef88c20cd646bda113e2fc"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h2560/20261027T123226614527Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h2560/20261027T123226614527Z/gpu_after.json",
+      "recorded_sha256": [
+        "aa45ba2be331c1f0cab6d7afd8b58b0fd0b56a07455999b59cdf4dd88a2cc727"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h2560/20261027T123226614527Z/gpu_before.json",
+      "recorded_sha256": [
+        "895013d8ddc26bb44b95e2f5ca169942582f07fde16262c58c0fbe365487c098"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h2560/20261027T123226614527Z/result.json",
+      "recorded_sha256": [
+        "412276a7d71e85c15bf51d8065e5468c230d9c06b5972fa64085b6c8362bec92"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h4096/20261027T123237991585Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h4096/20261027T123237991585Z/gpu_after.json",
+      "recorded_sha256": [
+        "bf5a848acb042af7007f607a452a361f574d58adcd7099a697a866e5a77f7c4c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h4096/20261027T123237991585Z/gpu_before.json",
+      "recorded_sha256": [
+        "fc1ff8f5f6bb5bad7eb4cebc049c9120455d99ee576e56bfdb5e7831f3f46fd4"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h4096/20261027T123237991585Z/result.json",
+      "recorded_sha256": [
+        "d9aa287f8f787b5ef50305b106c3ff332bd3cda6cc37ffac563985b7dade8edf"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h768/20261027T123204754277Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h768/20261027T123204754277Z/gpu_after.json",
+      "recorded_sha256": [
+        "9263707eb50ec92b4b7022018d3743d458b5a2bd794bdbca96ff47b2fa5989c5"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h768/20261027T123204754277Z/gpu_before.json",
+      "recorded_sha256": [
+        "65eee04783f499ac3decf0dd90d5eae30b1b484078240d311cbbe4748ea1a36a"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m1_h768/20261027T123204754277Z/result.json",
+      "recorded_sha256": [
+        "2136c6fdaf06a8d190faea339739f10ac42b4024c13293c82d8a422a141f8d07"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h1024/20261027T123350227116Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h1024/20261027T123350227116Z/gpu_after.json",
+      "recorded_sha256": [
+        "bc68170ed7be859ee1cc2e66563fe872b327e42e04507b10a31d3540f00fab94"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h1024/20261027T123350227116Z/gpu_before.json",
+      "recorded_sha256": [
+        "4dbff0030b482d22ac2bbf7f3cf6a814714229ebdd12f0194ca865e658d84321"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h1024/20261027T123350227116Z/result.json",
+      "recorded_sha256": [
+        "b665bce4667620f8d13dbed4368abd2edfa7a10f1fe0b3be290a5107d84ff791"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h2560/20261027T123410618748Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h2560/20261027T123410618748Z/gpu_after.json",
+      "recorded_sha256": [
+        "eb51d3e025292c1d2343fb58f400743cf0aa4c394f8732e878e685118cbdc7bf"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h2560/20261027T123410618748Z/gpu_before.json",
+      "recorded_sha256": [
+        "b35737d21e2f699a1f9eb57f265644f6fdb191cc33c1f7d70a5eda8a52e14d10"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h2560/20261027T123410618748Z/result.json",
+      "recorded_sha256": [
+        "4c28cdcd565c662796c9d4f7d556913face1fa9b22fed6e899304a622dddf541"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h4096/20261027T123450826080Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h4096/20261027T123450826080Z/gpu_after.json",
+      "recorded_sha256": [
+        "f77f4d174074f9ab26cebcd5a9343f931d4e4698adbfc9c250a4f0affd7d932b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h4096/20261027T123450826080Z/gpu_before.json",
+      "recorded_sha256": [
+        "6d7902f4176b77a9fd70dcce86ec31805c501c8e0d9b32a65ae7a3b4235c7ce9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h4096/20261027T123450826080Z/result.json",
+      "recorded_sha256": [
+        "0dcbb2ee8833c542d042c4f91de71108fe20ace5bfcd11f81464ef28e3c4a56c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h768/20261027T123333513267Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h768/20261027T123333513267Z/gpu_after.json",
+      "recorded_sha256": [
+        "b804b89dbd310cc4c9f4f1b94303017d8fdcdb4d4089ac0cce5b8115bf7404d4"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h768/20261027T123333513267Z/gpu_before.json",
+      "recorded_sha256": [
+        "6543ab7458abd08417bbd958fcd02cf438790787dede6a1e480ab7c6934f9708"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m2048_h768/20261027T123333513267Z/result.json",
+      "recorded_sha256": [
+        "816496514aab0581d70c09d202f38063f7c3b45d2defa79323763b40e0ab457d"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h1024/20261027T123259905777Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h1024/20261027T123259905777Z/gpu_after.json",
+      "recorded_sha256": [
+        "503c210c98306324f68093ff217a0af1bfbab8a3d7ef55bdbe0dc1d54029744f"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h1024/20261027T123259905777Z/gpu_before.json",
+      "recorded_sha256": [
+        "8efd50668a1a368486ff5d9df9e9f8bc38250bbbf2b88ccb89192c20f2ec0cb3"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h1024/20261027T123259905777Z/result.json",
+      "recorded_sha256": [
+        "82827464332b7bc0d5f74ffe569150f69fe86bd8975546c41100fa8d870de515"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h2560/20261027T123311028661Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h2560/20261027T123311028661Z/gpu_after.json",
+      "recorded_sha256": [
+        "744ccfbe819ed451dfe8b7ace6b0f06ff188e39b495a0f4a05026220206dbb7c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h2560/20261027T123311028661Z/gpu_before.json",
+      "recorded_sha256": [
+        "5d23b3b23f5a96104403924ea079fceeb230f07b62d991c92795ec4d0af0b556"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h2560/20261027T123311028661Z/result.json",
+      "recorded_sha256": [
+        "0317fee1160edadf278d884e1f4a0f2132720daa9f8d604e5bb20ed6ff804f4b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h4096/20261027T123322480332Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h4096/20261027T123322480332Z/gpu_after.json",
+      "recorded_sha256": [
+        "46add16f30e838fbaa9c7b624ac95560f9fe1af1bf1f215ccf50776fdc75235b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h4096/20261027T123322480332Z/gpu_before.json",
+      "recorded_sha256": [
+        "14bfa497a0485f396118145e59cdc9e55fbabc386a34459ddb97b8de0883834e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h4096/20261027T123322480332Z/result.json",
+      "recorded_sha256": [
+        "13d48e89fbe1e1e96e44265cb0daa0379bd1342d4297783bbe4a940f8484e748"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h768/20261027T123248272114Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h768/20261027T123248272114Z/gpu_after.json",
+      "recorded_sha256": [
+        "b775168cd4ae115aaa6a2eace60be34252760627ac5fa958fad203ba2b408d36"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h768/20261027T123248272114Z/gpu_before.json",
+      "recorded_sha256": [
+        "fa2963ce29e4b0cf833d80896d7f0f297fff88f9952c7aaf1277818798acb3ab"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/bfloat16_m32_h768/20261027T123248272114Z/result.json",
+      "recorded_sha256": [
+        "a18fedb78a931d8a7687d2977be079a50230be28d80c0914134262ebc3155563"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h1024/20261027T122749829738Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h1024/20261027T122749829738Z/gpu_after.json",
+      "recorded_sha256": [
+        "1aa53ab633f691aa79b073dd498658c5e18178185bed27204adf8430c5c706fc"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h1024/20261027T122749829738Z/gpu_before.json",
+      "recorded_sha256": [
+        "50e55253b5dfa94041e601d6e7799e9678e378b81f03c9753173935e4a3cf82f"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h1024/20261027T122749829738Z/result.json",
+      "recorded_sha256": [
+        "23da515aefc75392dfd4ae51183337cddc272b4fdf1a59e4663991b158cfc068"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h2560/20261027T122801708872Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h2560/20261027T122801708872Z/gpu_after.json",
+      "recorded_sha256": [
+        "ef01a7020b17bdada510751d762e412c847a978dfa71b3c4bd76f38fa34bfe81"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h2560/20261027T122801708872Z/gpu_before.json",
+      "recorded_sha256": [
+        "452881446dd76e3af438bd74fadbee6134b1eeb2129efbb59b38a8584e5f5bf1"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h2560/20261027T122801708872Z/result.json",
+      "recorded_sha256": [
+        "dbb5dc967d869336cc730988b176a22b4cba0f62eb140485d0ca60ce2b37d2bc"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h4096/20261027T122812403494Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h4096/20261027T122812403494Z/gpu_after.json",
+      "recorded_sha256": [
+        "ba5eda84c27cf298a83f15a26e91006aad4eb3b9ebaf36141dd7fc66cea40c3c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h4096/20261027T122812403494Z/gpu_before.json",
+      "recorded_sha256": [
+        "63d912854360e6425318248157fe730ade4697c93797de2027f9071fab826695"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h4096/20261027T122812403494Z/result.json",
+      "recorded_sha256": [
+        "0a86c5fbd92e7d3ad002c14fe3c760f4e02932fffc019794b78d0921721e2842"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h768/20261027T122738485470Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h768/20261027T122738485470Z/gpu_after.json",
+      "recorded_sha256": [
+        "0119eadcffdefc586633f0a557f35cec5758eeb4ce2818ca13427ce6b54154e7"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h768/20261027T122738485470Z/gpu_before.json",
+      "recorded_sha256": [
+        "03197c06248ad3f1c1606264faa54f69a501d96732173f89e9752c178c9a3cf5"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m1_h768/20261027T122738485470Z/result.json",
+      "recorded_sha256": [
+        "66a605eaf8fe12a0a41fcaf807e76e02ba383afddaaa3e56971df3145e27bead"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h1024/20261027T122924621697Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h1024/20261027T122924621697Z/gpu_after.json",
+      "recorded_sha256": [
+        "ed2f18e00a2d954e25d695135a798d7828a7f43e3fa6c0562fd1f7f91966b200"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h1024/20261027T122924621697Z/gpu_before.json",
+      "recorded_sha256": [
+        "910000c167071c277dc4101951e3f13cbc29c7b779edf1142d3003b66a48e080"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h1024/20261027T122924621697Z/result.json",
+      "recorded_sha256": [
+        "a19877a7add6b800dd8083e0c9bd2ff6a6167afb357b6b184891744e0384dd6e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h2560/20261027T122944290539Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h2560/20261027T122944290539Z/gpu_after.json",
+      "recorded_sha256": [
+        "1aabbe729e5f7263238c560a7b22c1ca6fd3a3994b767948be890f3bb07cf2f5"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h2560/20261027T122944290539Z/gpu_before.json",
+      "recorded_sha256": [
+        "07da1789413e20fa44b5eb4515092e0403c08488fb18c954aa104bed3b2556dd"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h2560/20261027T122944290539Z/result.json",
+      "recorded_sha256": [
+        "4ddbec28d6885e8d34838dc9fd1e9251a4f19fac5ea1eb383bfd0346d48bb04e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h4096/20261027T123026753555Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h4096/20261027T123026753555Z/gpu_after.json",
+      "recorded_sha256": [
+        "215f7b82a3b5a7f092bce80993c84e88128f4efc28c45211f3366c09421e012b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h4096/20261027T123026753555Z/gpu_before.json",
+      "recorded_sha256": [
+        "ec469df876e7619ed20d11cd150a15e7e227dc11e8620d1b3c671bbf6df329ab"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h4096/20261027T123026753555Z/result.json",
+      "recorded_sha256": [
+        "a938405c7979811feeb0923147bbc201e991e54d77a37894000a7e67e66ea987"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h768/20261027T122907388652Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h768/20261027T122907388652Z/gpu_after.json",
+      "recorded_sha256": [
+        "eb778c5137d6b530e3e41decd77b2e5d65a0f746a1daf6c03d319c844370cdb2"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h768/20261027T122907388652Z/gpu_before.json",
+      "recorded_sha256": [
+        "e80d47e9ed95313db7d80edb543aa4f533cc1ccce8e386855362cb0217f4018e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m2048_h768/20261027T122907388652Z/result.json",
+      "recorded_sha256": [
+        "b512af01fd8c9eefba8d5a3f3e201c1fb3337732e0d199801bce5e2b37785894"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h1024/20261027T122834670290Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h1024/20261027T122834670290Z/gpu_after.json",
+      "recorded_sha256": [
+        "149a3b63e38b16bdeb8b7ddbfed16c6f83c24a3098d260c59536c06acd10d65b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h1024/20261027T122834670290Z/gpu_before.json",
+      "recorded_sha256": [
+        "f31acc357ed53772cff5543a5dafe940f9997afea1773c880d21f19ffbd62f2c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h1024/20261027T122834670290Z/result.json",
+      "recorded_sha256": [
+        "39d708fa4e96c81499dfd7dc50be0df3ddb08a7b98ed214113675456eb9e031b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h2560/20261027T122845395704Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h2560/20261027T122845395704Z/gpu_after.json",
+      "recorded_sha256": [
+        "074836c8049e0d485977627cc2ee5be1129df4de5c8278b2e76364a917a9127a"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h2560/20261027T122845395704Z/gpu_before.json",
+      "recorded_sha256": [
+        "6a9aa98c51c83631a4315c5bb15f12e733ba0f782336a8eba4f6c363caac0cc2"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h2560/20261027T122845395704Z/result.json",
+      "recorded_sha256": [
+        "331aab2f169390eb54fdfb3873c8b96d8b27da002a1a94d9b476572bef044ff9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h4096/20261027T122855990949Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h4096/20261027T122855990949Z/gpu_after.json",
+      "recorded_sha256": [
+        "440f33e1fcd1216b0d9973962134ce3d62cb0aba6d692aae55ceb4c5b14698f7"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h4096/20261027T122855990949Z/gpu_before.json",
+      "recorded_sha256": [
+        "9d86913ba821b18aed95c8b8df4ca3e0c16d64a2b5b290dd430c5109a1084e41"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h4096/20261027T122855990949Z/result.json",
+      "recorded_sha256": [
+        "e1cecbf3d186eaa8a1dc01dce3e37a2900ea91c08e7fd9e98e3afcbb31d8e27d"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h768/20261027T122823503300Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h768/20261027T122823503300Z/gpu_after.json",
+      "recorded_sha256": [
+        "d3a2d43498d49ab33b31c86e0da8c8d4ff98254535696010e181c812642005f4"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h768/20261027T122823503300Z/gpu_before.json",
+      "recorded_sha256": [
+        "2801585aba5d4ff9a2a7a3b0ca1f324fdc5d24e1abdc509c5fa1c928e5805f59"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/baseline_v1/cases/float16_m32_h768/20261027T122823503300Z/result.json",
+      "recorded_sha256": [
+        "9dd4c73abc11e30abfc3ae2af5dc2463e836ecc0acf1c64696d8fa87e78c8b2a"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h1024/20261027T140758590075Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h1024/20261027T140758590075Z/gpu_after.json",
+      "recorded_sha256": [
+        "4eea0dad55d90a7c2e35064a164188d68b2ef6e5895aaac90c4c912b447b951e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h1024/20261027T140758590075Z/gpu_before.json",
+      "recorded_sha256": [
+        "694d8929b45c7950731355957e765dedfc12e5c621433c25ee6169c323d80128"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h1024/20261027T140758590075Z/result.json",
+      "recorded_sha256": [
+        "593100558d8b77eb195f393c175f5bc0c5ecbfd63093eb045644db845e037bb9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h2560/20261027T140809585687Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h2560/20261027T140809585687Z/gpu_after.json",
+      "recorded_sha256": [
+        "802b6e6875842ecbe52395fe4367bf76d309fc93f9b9fa71f022e8c877e9e32d"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h2560/20261027T140809585687Z/gpu_before.json",
+      "recorded_sha256": [
+        "029118fa7247744bb7b2f43e383b21659ef88ec1e6a7fbeb511a2599da2036f5"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h2560/20261027T140809585687Z/result.json",
+      "recorded_sha256": [
+        "72bc84cc5624ecc127a1cbf9ff582198531361ea9d684396752bc07649006cdf"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h4096/20261027T140820924683Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h4096/20261027T140820924683Z/gpu_after.json",
+      "recorded_sha256": [
+        "c35603c9473d7f6472b605f258cdd0564a790b55a8769777d24ce2d06ff697b9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h4096/20261027T140820924683Z/gpu_before.json",
+      "recorded_sha256": [
+        "bee3cd7efbe934d01d854f087f255d905079af40abd3736bca3e390638c1c7bf"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h4096/20261027T140820924683Z/result.json",
+      "recorded_sha256": [
+        "863ad888bbcd165c1c351cf64a2fc6082d43f8938cc0c113340a62cc11cf2849"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h768/20261027T140747615713Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h768/20261027T140747615713Z/gpu_after.json",
+      "recorded_sha256": [
+        "4c99fe43c1b243d73d9c998edf661c6a1c27112f8c6bc2f6ac621ac89e1bde2b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h768/20261027T140747615713Z/gpu_before.json",
+      "recorded_sha256": [
+        "836d944c710c037405bf717b4e8e2abda72822edca9d35cbf229a7baa720f7f2"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m1_h768/20261027T140747615713Z/result.json",
+      "recorded_sha256": [
+        "ce8248c75579010b1da7f8d54858e07dd6b8d0bbb3ae1dd67d4798498614c2f8"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h1024/20261027T140939328430Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h1024/20261027T140939328430Z/gpu_after.json",
+      "recorded_sha256": [
+        "b00e45679cee1a16cd95c463aae68c31408f42d31cae130ba18e5d875d21c65e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h1024/20261027T140939328430Z/gpu_before.json",
+      "recorded_sha256": [
+        "5f6fc88cde348bd8bfbf74b50d3aa47aeb28afe748ca3adca39cf6f361316d4c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h1024/20261027T140939328430Z/result.json",
+      "recorded_sha256": [
+        "4b63bd90ccbebd8fbdc89e47912f8eb10d3cc4ffd5ed1cb08e1b19938cf26a28"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h2560/20261027T141004953104Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h2560/20261027T141004953104Z/gpu_after.json",
+      "recorded_sha256": [
+        "fbd214aa15fe7f5f7b849095cf07c808a3337c23d3b2f00e030d325339a28dd7"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h2560/20261027T141004953104Z/gpu_before.json",
+      "recorded_sha256": [
+        "5e86e9dc092e831dc9e02597275b1561294c6e8027dc38c29ba858be08668d88"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h2560/20261027T141004953104Z/result.json",
+      "recorded_sha256": [
+        "11c22f9e191a2c7d3c80d57dd186add98f328169fbd7fabb3d103c18c63518eb"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h4096/20261027T141058223263Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h4096/20261027T141058223263Z/gpu_after.json",
+      "recorded_sha256": [
+        "10848bc7863970eae2111c4d6702143d1f40cde10b68c0efdc7e2b216435e3d1"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h4096/20261027T141058223263Z/gpu_before.json",
+      "recorded_sha256": [
+        "e045de8508fc5f77e14661c3a28402eef2c91416a8f57d0eab409dbf64128534"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h4096/20261027T141058223263Z/result.json",
+      "recorded_sha256": [
+        "fe67d506ad0bcc8489ca4a776e0e78664d9739579c7406f6124b76b608730c44"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h768/20261027T140918396146Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h768/20261027T140918396146Z/gpu_after.json",
+      "recorded_sha256": [
+        "c07b1f00badfa00aa337c46b0b25ba12b09bc80f52f183e1dbecb860eb50568d"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h768/20261027T140918396146Z/gpu_before.json",
+      "recorded_sha256": [
+        "70aa4c713266a39ff26626bdad97d1c096bb45347c11d913178f401d14d7ab9a"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m2048_h768/20261027T140918396146Z/result.json",
+      "recorded_sha256": [
+        "9fa8e27e0b42e462ab811e643d1ac10af3e8a918cabe4abb02ac84d2ef4c1703"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h1024/20261027T140842743799Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h1024/20261027T140842743799Z/gpu_after.json",
+      "recorded_sha256": [
+        "9f4e86be5cc16f24a93c1bc143352ae87ef877cfcaeeb789e9c0b5651b0e780e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h1024/20261027T140842743799Z/gpu_before.json",
+      "recorded_sha256": [
+        "05789506e2893d4b9877be331cb6ef2932410b5841a26613da2a75628b898512"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h1024/20261027T140842743799Z/result.json",
+      "recorded_sha256": [
+        "17d80dc5c630e00e6e62258c237b99ea192a6ca32a6c7240415cc972317b716a"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h2560/20261027T140853980848Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h2560/20261027T140853980848Z/gpu_after.json",
+      "recorded_sha256": [
+        "89383fc92f0347528437f56e3b762f2f783c4c3f17c2202c0ace553cc68952bd"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h2560/20261027T140853980848Z/gpu_before.json",
+      "recorded_sha256": [
+        "76d33777ae0ac82ca21aff21ca096a554e2519e9dc313c93d31fd589f51e04a3"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h2560/20261027T140853980848Z/result.json",
+      "recorded_sha256": [
+        "7ca6ece14174302886a95fc02e5d8af02e92d57d2d08684dde3404d3ac510d3e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h4096/20261027T140906028042Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h4096/20261027T140906028042Z/gpu_after.json",
+      "recorded_sha256": [
+        "dca3801b3302cfedf2551378b39a598272cb553fe4b3f55d6c6bf4c80bedad58"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h4096/20261027T140906028042Z/gpu_before.json",
+      "recorded_sha256": [
+        "bd62beddf0f3d705f5e59331d6a6c319461f043bedaa87e3184ed0403c7dd0fa"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h4096/20261027T140906028042Z/result.json",
+      "recorded_sha256": [
+        "bce19c72415bf8c812bfc4b8dfa0155394b1ffeadc6e319618157af2dcc053eb"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h768/20261027T140831779500Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h768/20261027T140831779500Z/gpu_after.json",
+      "recorded_sha256": [
+        "5f00f6e9d7df4ddb1ba5209a080707ce218b98ac65553fb9bc0377e1a1e5510c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h768/20261027T140831779500Z/gpu_before.json",
+      "recorded_sha256": [
+        "70294dc4918ff1502570907c8433e741f889584724d303cd510b38080da65943"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/bfloat16_m32_h768/20261027T140831779500Z/result.json",
+      "recorded_sha256": [
+        "0fbe8e1fec99e52b129806f47c478fb1399ce83f0febce54eb54fed9166a3b62"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h1024/20261027T140229271409Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h1024/20261027T140229271409Z/gpu_after.json",
+      "recorded_sha256": [
+        "50d4a723d57bb8603ed6bb612b7e70d63eab1841f1341c77c75d1a99bd73cefc"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h1024/20261027T140229271409Z/gpu_before.json",
+      "recorded_sha256": [
+        "bcd8c0fe176f225663691788a043395e4836605a4b6e32e6318f0af86cc02383"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h1024/20261027T140229271409Z/result.json",
+      "recorded_sha256": [
+        "7bab782d0f8d67d48e198eb72506be90b21dd93e0ff8afb4eb95c22382dd5d20"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h2560/20261027T140240967790Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h2560/20261027T140240967790Z/gpu_after.json",
+      "recorded_sha256": [
+        "0f2198eafc0cdc434c3d0c36790c325800161031b6af6400b59c01b16f239063"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h2560/20261027T140240967790Z/gpu_before.json",
+      "recorded_sha256": [
+        "ef42e29bfe7fffe3fe61d794c782263e38475d631e6b511cd59d5027e98877f3"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h2560/20261027T140240967790Z/result.json",
+      "recorded_sha256": [
+        "25bcc6bd9da6ce510138b0a5e73db596ed1202829ad273f9c1c7e754c79b712d"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h4096/20261027T140252758075Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h4096/20261027T140252758075Z/gpu_after.json",
+      "recorded_sha256": [
+        "fb802c2f39dcd3c0ab25bea7095e833f729871c4bf7b1a7de6efb280ecbcd8b6"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h4096/20261027T140252758075Z/gpu_before.json",
+      "recorded_sha256": [
+        "d12ce8bc0730897a8c3a978af33ec617af753b23db685c3c60600e5c07c90029"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h4096/20261027T140252758075Z/result.json",
+      "recorded_sha256": [
+        "8b10dff58459844169e2977c6e42c74d5cdb379134bca3ab258e65a882636b9e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h768/20261027T140217614946Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h768/20261027T140217614946Z/gpu_after.json",
+      "recorded_sha256": [
+        "8eb124af57020fb6ba6b99830b4486b004793db2cd1a58d644e6b83d93bd1c95"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h768/20261027T140217614946Z/gpu_before.json",
+      "recorded_sha256": [
+        "77c569584cf42602eaf3c0d33e708e5710244a4ef3eb4b3479f7dae927ee61e8"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m1_h768/20261027T140217614946Z/result.json",
+      "recorded_sha256": [
+        "9b4fa026b50bf35e4cd0e4a85a875e93509e15b9cd19b0603315b1c8e4b20cde"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h1024/20261027T140411745002Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h1024/20261027T140411745002Z/gpu_after.json",
+      "recorded_sha256": [
+        "0cc083d5bd3a0ac0a51fcdd3228a8781bbf3ecc74187aeb157d9a8de40155393"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h1024/20261027T140411745002Z/gpu_before.json",
+      "recorded_sha256": [
+        "8561ab236289bdaf25d609213faf9fc172ed64744818800fc29b121f8e7dcd44"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h1024/20261027T140411745002Z/result.json",
+      "recorded_sha256": [
+        "7cc7c386514ffa52b1c74495d7001f0af10d7279e2a5122c2834d0c75dced73b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h2560/20261027T140436484660Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h2560/20261027T140436484660Z/gpu_after.json",
+      "recorded_sha256": [
+        "95a0e95543044f493f92a2cf13c7b99f06b4efaedefc6590cfcadaf15426167e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h2560/20261027T140436484660Z/gpu_before.json",
+      "recorded_sha256": [
+        "93297003b4a61359270a2192d07ffe8186f4f89774704a1bd2105f2a03c20b46"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h2560/20261027T140436484660Z/result.json",
+      "recorded_sha256": [
+        "eddce52ec41d69ca9d3ee35fadfa96f4a3254dc7c71e7a8579ef6d7c923c3b26"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h4096/20261027T140535334566Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h4096/20261027T140535334566Z/gpu_after.json",
+      "recorded_sha256": [
+        "c118bae91c5ab720952bf4e885c35ba22b97ba3721449c667ad367a680827d14"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h4096/20261027T140535334566Z/gpu_before.json",
+      "recorded_sha256": [
+        "2ed20752224a5fffc41243f098b1a08cbd8a01ea76fbac18e7bd9c446eb90cbb"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h4096/20261027T140535334566Z/result.json",
+      "recorded_sha256": [
+        "4613f44a2b5ba4f29717ceb4438981238714854b2dc86aafa2883d59728378bd"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h768/20261027T140350277101Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h768/20261027T140350277101Z/gpu_after.json",
+      "recorded_sha256": [
+        "36176070ebdf3e8b2a34971f7bdc4df0145efd2c74839175600e67603ee5aa4f"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h768/20261027T140350277101Z/gpu_before.json",
+      "recorded_sha256": [
+        "2755a5618fe5497c7a3345322270c0ec1cb6185974220dffbc3eb36affb7d1f8"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m2048_h768/20261027T140350277101Z/result.json",
+      "recorded_sha256": [
+        "3a4d7a6622418164c2f7e8a49a143520f69e83648a7a311d1730b967b40c673b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h1024/20261027T140315611826Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h1024/20261027T140315611826Z/gpu_after.json",
+      "recorded_sha256": [
+        "11e74af0d910cfa07184a79745bb81c9bf6accf471b1f9685feb2ba734f96446"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h1024/20261027T140315611826Z/gpu_before.json",
+      "recorded_sha256": [
+        "cd8ed5b5fd30009986f601a9b2f29f6a8e49d0be8421ad568dd05193705467d9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h1024/20261027T140315611826Z/result.json",
+      "recorded_sha256": [
+        "43b174fd0949b67b466e308b032d74b1988ef7b829212674dc40adf0ca8689f8"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h2560/20261027T140326644033Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h2560/20261027T140326644033Z/gpu_after.json",
+      "recorded_sha256": [
+        "958fc6c4db7ee4c45d99a1d6d20e1c1388147538435fe7678801fda7024918c8"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h2560/20261027T140326644033Z/gpu_before.json",
+      "recorded_sha256": [
+        "f63d80297ab3374031c1b0eb4935509afed41ba28bd319431d5623119cb2ef88"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h2560/20261027T140326644033Z/result.json",
+      "recorded_sha256": [
+        "ecf01809694fc74a1268427113ced9a321a78324836861958f4cf4ee42490e8e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h4096/20261027T140338051277Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h4096/20261027T140338051277Z/gpu_after.json",
+      "recorded_sha256": [
+        "38b94bfc0b9bc2375e8e0acc42fc022f9c2a54b2c35a87e49b421a21175d05d9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h4096/20261027T140338051277Z/gpu_before.json",
+      "recorded_sha256": [
+        "48114bd67531198896a7b4980a8f4880f69b0581c0c12db57153118c4deff4b2"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h4096/20261027T140338051277Z/result.json",
+      "recorded_sha256": [
+        "d14be87c776d663fd6bf56b2f89afd6e5566acfc4768a2eab1a5584b96856ea8"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h768/20261027T140304490258Z/environment.txt",
+      "recorded_sha256": [
+        "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h768/20261027T140304490258Z/gpu_after.json",
+      "recorded_sha256": [
+        "8456be6d01206b4dca723b157a3968d01930291676bd7805b1915502b2ddaa80"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h768/20261027T140304490258Z/gpu_before.json",
+      "recorded_sha256": [
+        "672c1d35382fb294b742fc3e370622f72fdbe2a32fa2d34da3d61463e36994ae"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/confirmation_v1/cases/float16_m32_h768/20261027T140304490258Z/result.json",
+      "recorded_sha256": [
+        "dbdb10219066452cbeacadf8f68d212cbd566edef0ddab3aa4e0c4e64747d627"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/pilot_protocol_v1.json",
+      "recorded_sha256": [
+        "377d59c368d11dfc5ee9f6f1e58722580a3a0dd8f2ae9dfa6e0a1c304e0f1d5e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/selected_validation_v1/20261027T132344198303Z/full_validation.json",
+      "recorded_sha256": [
+        "c48887cc39533c3b437ff73b3a2a9a24240ef03aa0fc7fe2c5c27cebb1790eca"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/selected_validation_v1/20261027T132344198303Z/full_validation.sha256",
+      "recorded_sha256": [
+        "b5541586fadee701ac78348e942afec3dfba31d5f488892e34dcceeb18c49d2f"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/selected_validation_v1/20261027T132457826957Z/smoke_validation.json",
+      "recorded_sha256": [
+        "8e9becfb66d5431020d355b3616c27abc65237e35a97a4e28b2ad7d7f348914e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/selected_validation_v1/20261027T132457826957Z/smoke_validation.sha256",
+      "recorded_sha256": [
+        "58e914449dc9dd88521daf28c330303a42bcf8eede0b940dfa2e37078968769a"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h1024/20261027T131041608184Z/result.json",
+      "recorded_sha256": [
+        "53dadca18f9a64ebd7bac314047e9365498d7e709d068de54890e8d02020d33c"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h2560/20261027T131048183938Z/result.json",
+      "recorded_sha256": [
+        "02a6162e47f6c4a295b63e3ef649b87f64d0f4aaefd65e29df1c8835d60fee7e"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h4096/20261027T131054948650Z/result.json",
+      "recorded_sha256": [
+        "21e73fd70ae3ba4e8f5ce788b259ddde1ad84324119e2ca0ed2ccb0e2fcbee7f"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h768/20261027T131035211478Z/result.json",
+      "recorded_sha256": [
+        "9a64a09ee73d7ebaff1dfba4acab7638ea56788c1d10b3e03cf8452c4936917d"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h1024/20261027T131142105710Z/result.json",
+      "recorded_sha256": [
+        "0440bfa8f2d87c572f6363c7502fdd8bbbc0a5cafc776e4f9db04a61b586faf4"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h2560/20261027T131200382048Z/result.json",
+      "recorded_sha256": [
+        "2cfd0d7e112a9e99c9d37385f6bfa6739d09d9ec703446b0a89fd3a3259d9e4a"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h4096/20261027T131241763867Z/result.json",
+      "recorded_sha256": [
+        "5cb0d232dfaf67f526cb160104031e45ed6559269818fbc765c05eb4ead47f27"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h768/20261027T131127695249Z/result.json",
+      "recorded_sha256": [
+        "101ccbd47fd6fabccb147a8c12271dd7e16e06c93a7469ba078cefa1b936f267"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h1024/20261027T131107787018Z/result.json",
+      "recorded_sha256": [
+        "9815a69ac2729e193878db123248a4ee24b0880e75441149741b098a3c6ecb23"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h2560/20261027T131114283820Z/result.json",
+      "recorded_sha256": [
+        "90a7886f05b23c33c0974c39b6d18df070cd1357dd7696bf214044fb95be539b"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h4096/20261027T131121059411Z/result.json",
+      "recorded_sha256": [
+        "9ca174a435db3e0b2572adbe2893c157ca241df55009964670e4bcdc4f00a2d9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h768/20261027T131101637520Z/result.json",
+      "recorded_sha256": [
+        "8889c62fd1ca33dc6115d671014886077aea42f5f3c4ca1150c81ffe539a2219"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m1_h1024/20261027T130625711290Z/result.json",
+      "recorded_sha256": [
+        "38b44c318b6b182fd0e02f24a026a833eef59c9fd222f784d544ecbafafddfc6"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m1_h2560/20261027T130632296561Z/result.json",
+      "recorded_sha256": [
+        "8f8a34285c6ee2fa6077449f2a2919d27af72c20e90a3a27857277169f0aa437"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m1_h4096/20261027T130639177162Z/result.json",
+      "recorded_sha256": [
+        "876739a30307260cef79b1baeb425cce93ebe5026a2ae7c0fb5e73f9729f52dc"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m1_h768/20261027T130618957609Z/result.json",
+      "recorded_sha256": [
+        "f094bfae30256a096180c60b4616975b1df0ec49bd68616a46074a0955cd2cc9"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m2048_h1024/20261027T130727835748Z/result.json",
+      "recorded_sha256": [
+        "e4b0a58de13d2dc035d76332bcabca270d91472fa2e47257b9f64e9a84a53b36"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m2048_h2560/20261027T130746266065Z/result.json",
+      "recorded_sha256": [
+        "bc8d0738286140a9d0f606d89707555afd94a31844f4c2b4105994f4a2088b94"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m2048_h4096/20261027T130827078494Z/result.json",
+      "recorded_sha256": [
+        "8b38c9ed34df099d402af01f4c39ade34289c4329700da5101495b888f12a57d"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m2048_h768/20261027T130713110288Z/result.json",
+      "recorded_sha256": [
+        "a3c0fc4181743b3b45b7e20b482ebeca5b99b427acb758193e826d7904205139"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m32_h1024/20261027T130652907742Z/result.json",
+      "recorded_sha256": [
+        "82440775d2bbd041dcf9bc637eeb2dbdc07b5ac2be2e332fd1c4348f2a7e1dfc"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m32_h2560/20261027T130659195305Z/result.json",
+      "recorded_sha256": [
+        "b6caab1bfd45237044198b50710cbcab7ebb5811c3ead22763483234cdfbabbc"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m32_h4096/20261027T130705923189Z/result.json",
+      "recorded_sha256": [
+        "bde7dd2b0753fb9548f33bdd2ca040a66a0f693ab145d5efcf3a1f977721cd05"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/cases/float16_m32_h768/20261027T130646354342Z/result.json",
+      "recorded_sha256": [
+        "4f42f29a81f41436498ace9ccb0a267da7ace953ced52c3a40d9298c01554bc2"
+      ],
+      "public_copy": null,
+      "available_in_review_upload": false,
+      "included_as_public_file": false,
+      "note": "Embedded case payloads can reproduce their original result hashes in memory; separate files and auxiliary evidence are not restored"
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/protocol.json",
+      "recorded_sha256": [
+        "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a"
+      ],
+      "public_copy": "results/warp_tuning/protocol.json",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/selected_policy.json",
+      "recorded_sha256": [
+        "c75cc7f40cd44bff3f05a81782903e4683187d4005469152d488b5b6c072501e"
+      ],
+      "public_copy": "results/warp_tuning/selected_policy.json",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "outputs/day11/warp_tuning_v1/tuning_summary.json",
+      "recorded_sha256": [
+        "252a75d9196602992f9e54bcce2e690bedc37019edb922c62263ac32554a1c85"
+      ],
+      "public_copy": "results/warp_tuning/tuning_summary.json",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "rmsnorm_lab/launch_variants.py",
+      "recorded_sha256": [
+        "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      ],
+      "public_copy": "rmsnorm_lab/launch_variants.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "rmsnorm_lab/reference.py",
+      "recorded_sha256": [
+        "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a"
+      ],
+      "public_copy": "rmsnorm_lab/reference.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "rmsnorm_lab/triton_kernel.py",
+      "recorded_sha256": [
+        "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29"
+      ],
+      "public_copy": "rmsnorm_lab/triton_kernel.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "rmsnorm_lab/tuned_kernel.py",
+      "recorded_sha256": [
+        "7a4d83606f6638370a840f943db7209851bf7650c7e1a6539ac235efa0193d04"
+      ],
+      "public_copy": "rmsnorm_lab/tuned_kernel.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/benchmark_confirmation.py",
+      "recorded_sha256": [
+        "d4556194d37552c3ed2765838277d84ee51a58be62814a17d47643afe2631a91"
+      ],
+      "public_copy": "scripts/benchmark_confirmation.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/benchmark_matrix.py",
+      "recorded_sha256": [
+        "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71"
+      ],
+      "public_copy": "scripts/benchmark_matrix.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/benchmark_pilot.py",
+      "recorded_sha256": [
+        "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b"
+      ],
+      "public_copy": "scripts/benchmark_pilot.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/check_compiled_reference.py",
+      "recorded_sha256": [
+        "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34"
+      ],
+      "public_copy": "scripts/check_compiled_reference.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/check_reference.py",
+      "recorded_sha256": [
+        "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223"
+      ],
+      "public_copy": "scripts/check_reference.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/tune_warps.py",
+      "recorded_sha256": [
+        "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906"
+      ],
+      "public_copy": "scripts/tune_warps.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/validate_compiled_matrix.py",
+      "recorded_sha256": [
+        "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2"
+      ],
+      "public_copy": "scripts/validate_compiled_matrix.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/validate_selected_policy.py",
+      "recorded_sha256": [
+        "df95401f46f17df35facf4d5d6edb4c7735a2a0d8e460517a37cf39ca4d19c58"
+      ],
+      "public_copy": "scripts/validate_selected_policy.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "scripts/validate_triton.py",
+      "recorded_sha256": [
+        "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492"
+      ],
+      "public_copy": "scripts/validate_triton.py",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    },
+    {
+      "original_path": "specs/contract_v1.json",
+      "recorded_sha256": [
+        "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d"
+      ],
+      "public_copy": "specs/contract_v1.json",
+      "available_in_review_upload": true,
+      "included_as_public_file": true,
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "rmsnorm_lab/__init__.py": "73f11b6637fd605e32258802318ac69d4d8d83f1bc96ea0d7b201eb00b4775ab",
+  "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9",
+  "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+  "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+  "rmsnorm_lab/tuned_kernel.py": "7a4d83606f6638370a840f943db7209851bf7650c7e1a6539ac235efa0193d04",
+  "scripts/benchmark_confirmation.py": "d4556194d37552c3ed2765838277d84ee51a58be62814a17d47643afe2631a91",
+  "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+  "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+  "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+  "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+  "scripts/check_triton.py": "aabb26912c6d2201fa785e70cc6849f5b8e98e7bf6da35c32fb721140150f324",
+  "scripts/inspect_kernel_launches.py": "7603a0b4927c9eb5824cc05c1b0767165b0b9292580d9505fa7a7b905da967ee",
+  "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+  "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+  "scripts/validate_selected_policy.py": "df95401f46f17df35facf4d5d6edb4c7735a2a0d8e460517a37cf39ca4d19c58",
+  "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+  "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d"
+}

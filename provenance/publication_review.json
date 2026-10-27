@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-27",
+  "input_archive": "project2-review.zip",
+  "input_archive_sha256": "4d91b0b23b4307843cfbbfbd36883340770302752b77dda59a0f5fa7e4ea31a6",
+  "original_python_sources": 16,
+  "original_python_sources_preserved": true,
+  "contract_preserved": true,
+  "confirmation_source_pins_matched": 14,
+  "embedded_case_result_payloads_reconstructable": 72,
+  "local_review": "Python syntax, public file hashes, source/environment/protocol consistency and saved timing arithmetic; CPU only",
+  "cuda_executed_during_publication_review": false,
+  "clean_checkout_gpu_reproduction_performed": false,
+  "omitted_evidence": "Original validation receipts, sanitizer logs, raw profiler traces and auxiliary per-case files were not supplied; see docs/EVIDENCE.md",
+  "policy_status_flags": "Original pending flags preserved as selection-time metadata; later results reference this policy hash"
+}

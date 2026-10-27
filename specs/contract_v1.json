@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "operation": "residual_add_rmsnorm",
+  "mode": "forward inference only; no input mutation",
+  "inputs": {
+    "x": "contiguous CUDA tensor [M,H]",
+    "residual": "contiguous CUDA tensor [M,H]",
+    "weight": "contiguous CUDA tensor [H]; direct multiplicative gamma"
+  },
+  "dimensions": "positive M and H; no broadcasting of residual",
+  "dtypes": ["float16", "bfloat16"],
+  "device_and_dtype": "all inputs share the same CUDA device and dtype",
+  "eps": 1e-6,
+  "eps_rule": "positive finite Python number added inside the square root",
+  "steps": [
+    "Add x and residual after promoting each to float32",
+    "Round their sum to the input dtype; this is residual_out",
+    "Promote residual_out to float32",
+    "Compute the mean of squared values along H using float32",
+    "Multiply by rsqrt(mean_square + eps) and then float32(weight)",
+    "Round the normalized result to the input dtype; this is output"
+  ],
+  "outputs": "(output, residual_out); both contiguous [M,H], same dtype/device as x, fresh storage",
+  "numerical_domain": "finite inputs with no overflow in rounded sum, float32 square/reduction, or output; subnormal behavior is not guaranteed",
+  "residual_comparison": "exact equality for finite values in the supported numerical domain",
+  "output_tolerances": {
+    "float16": {"rtol": 0.002, "atol": 0.0002},
+    "bfloat16": {"rtol": 0.01, "atol": 0.001}
+  },
+  "comparison_rule": "abs(actual-expected) <= atol + rtol*abs(expected) for every output element; all outputs must be finite",
+  "benchmark_main_shapes": {"M": [1, 32, 2048], "H": [768, 1024, 2560, 4096]},
+  "planned_random_seeds_per_shape_dtype": 10,
+  "baseline_rule": "same inputs, rounding boundary, two returned outputs, inference mode, and timing scope for eager PyTorch, torch.compile, and Triton",
+  "performance_results": "none yet"
+}

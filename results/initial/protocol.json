@@ -1,0 +1,107 @@
+{
+  "study": "day11_initial_kernel_matrix_v1",
+  "pilot_protocol_sha256": "377d59c368d11dfc5ee9f6f1e58722580a3a0dd8f2ae9dfa6e0a1c304e0f1d5e",
+  "dtypes": [
+    "float16",
+    "bfloat16"
+  ],
+  "M": [
+    1,
+    32,
+    2048
+  ],
+  "H": [
+    768,
+    1024,
+    2560,
+    4096
+  ],
+  "seed": 123,
+  "primary_case": {
+    "dtype": "bfloat16",
+    "M": 32,
+    "H": 4096
+  },
+  "compile_config": {
+    "backend": "inductor",
+    "fullgraph": true,
+    "dynamic": false,
+    "mode": "default"
+  },
+  "eps": 1e-06,
+  "captured_calls_per_replay": 64,
+  "replays_per_batch": 200,
+  "repetitions_per_method": 6,
+  "method_orders": [
+    [
+      "eager",
+      "compiled",
+      "triton"
+    ],
+    [
+      "compiled",
+      "triton",
+      "eager"
+    ],
+    [
+      "triton",
+      "eager",
+      "compiled"
+    ],
+    [
+      "eager",
+      "compiled",
+      "triton"
+    ],
+    [
+      "compiled",
+      "triton",
+      "eager"
+    ],
+    [
+      "triton",
+      "eager",
+      "compiled"
+    ]
+  ],
+  "warmup_calls_per_method": 10,
+  "warmup_replays_per_method": 5,
+  "mixed_graph_warmup_seconds": 1.0,
+  "metric": "CUDA event elapsed microseconds / (captured calls * graph replays)",
+  "aggregation": "median of six batch means per method; speedup is ratio of medians",
+  "outputs": "64 retained distinct output pairs per method; storage reused across graph replays",
+  "cache_scope": "repeated static inputs and output buffers, no explicit cache flush",
+  "excluded": [
+    "compilation",
+    "capture",
+    "Python function dispatch",
+    "live allocator overhead",
+    "validation",
+    "CPU/GPU copies",
+    "oracle computation"
+  ],
+  "gpu_identity": {
+    "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+    "name": "NVIDIA GeForce RTX 4090",
+    "driver": "580.76.05"
+  },
+  "packages": {
+    "torch": "2.13.0+cu132",
+    "triton": "3.7.1"
+  },
+  "cuda_build": "13.2",
+  "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+  "source_sha256": {
+    "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+    "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+    "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+    "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+    "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+    "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+    "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+    "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+    "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71"
+  },
+  "worker_policy": "one fresh process per shape/dtype, sequential; six within-process timing batches",
+  "scope": "warm CUDA Graph replay, before any kernel tuning; not Python-call or model latency"
+}

@@ -1,0 +1,29 @@
+# Reproducible local runtime state and large captures
+/outputs/
+/logs/
+/backups/
+/.cache/
+/.venv*/
+/venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.trace.json
+*.trace.json.gz
+*.nsys-rep
+*.ncu-rep
+*.zip
+*.tar
+*.tar.gz
+*.whl
+# Local credentials and environment files
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,5290 @@
+{
+  "protocol": {
+    "study": "day11_warp_tuning_v1",
+    "initial_baseline_sha256": "fa7850c08e1df865cb9e47bf718975f17c4231db395f33696b0c93da274255b6",
+    "initial_protocol_sha256": "71e7a8687a0ac586a4b91835dd868b316ec9859802ecd14e576e3978844d5ea0",
+    "dtypes": [
+      "float16",
+      "bfloat16"
+    ],
+    "M": [
+      1,
+      32,
+      2048
+    ],
+    "H": [
+      768,
+      1024,
+      2560,
+      4096
+    ],
+    "seed": 123,
+    "eps": 1e-06,
+    "warp_candidates": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "baseline_warps": 4,
+    "selection_rule": "Keep four warps unless the fastest candidate median improves it by at least 3 percent; exact candidate ties choose the smaller warp count",
+    "minimum_relative_improvement": 0.03,
+    "captured_calls_per_replay": 64,
+    "replays_per_batch": 100,
+    "batches_per_candidate": 5,
+    "candidate_orders": [
+      [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      [
+        2,
+        4,
+        8,
+        16,
+        1
+      ],
+      [
+        4,
+        8,
+        16,
+        1,
+        2
+      ],
+      [
+        8,
+        16,
+        1,
+        2,
+        4
+      ],
+      [
+        16,
+        1,
+        2,
+        4,
+        8
+      ]
+    ],
+    "warmup_calls": 10,
+    "warmup_replays": 5,
+    "mixed_warmup_seconds": 1.0,
+    "correctness_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "boundary_patterns": [
+      "zero",
+      "cancel",
+      "halfway_up",
+      "halfway_down"
+    ],
+    "unchanged": "kernel body, residual rounding, output contract, fixed tolerances, block size, one stage, FP fusion disabled",
+    "gpu_identity": {
+      "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+      "name": "NVIDIA GeForce RTX 4090",
+      "driver": "580.76.05"
+    },
+    "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+    "packages": {
+      "torch": "2.13.0+cu132",
+      "triton": "3.7.1"
+    },
+    "source_sha256": {
+      "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+      "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+      "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+      "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+      "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+      "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+      "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+      "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+      "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+      "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+      "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+    },
+    "scope": "Configuration search estimates. A frozen selected policy needs separate validation and independent performance confirmation."
+  },
+  "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+  "cases": [
+    {
+      "dtype": "float16",
+      "M": 1,
+      "H": 768,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.592512130737305,
+            "mean_us_per_invocation": 1.0300800204277039
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.5423359870910645,
+            "mean_us_per_invocation": 1.0222399979829788
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.5423359870910645,
+            "mean_us_per_invocation": 1.0222399979829788
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.5423359870910645,
+            "mean_us_per_invocation": 1.0222399979829788
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.543360233306885,
+            "mean_us_per_invocation": 1.0224000364542007
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.146495819091797,
+            "mean_us_per_invocation": 1.1166399717330933
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.145279884338379,
+            "mean_us_per_invocation": 1.1164499819278717
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.147520065307617,
+            "mean_us_per_invocation": 1.1168000102043152
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.143424034118652,
+            "mean_us_per_invocation": 1.1161600053310394
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.145376205444336,
+            "mean_us_per_invocation": 1.1164650321006775
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.048064231872559,
+            "mean_us_per_invocation": 1.1012600362300873
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.045119762420654,
+            "mean_us_per_invocation": 1.1007999628782272
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.045983791351318,
+            "mean_us_per_invocation": 1.1009349673986435
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.045119762420654,
+            "mean_us_per_invocation": 1.1007999628782272
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.045119762420654,
+            "mean_us_per_invocation": 1.1007999628782272
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.931456089019775,
+            "mean_us_per_invocation": 1.08304001390934
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.931456089019775,
+            "mean_us_per_invocation": 1.08304001390934
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.931295871734619,
+            "mean_us_per_invocation": 1.0830149799585342
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.930431842803955,
+            "mean_us_per_invocation": 1.082879975438118
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.931295871734619,
+            "mean_us_per_invocation": 1.0830149799585342
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.998015880584717,
+            "mean_us_per_invocation": 1.093439981341362
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.995967864990234,
+            "mean_us_per_invocation": 1.0931199789047241
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.997951984405518,
+            "mean_us_per_invocation": 1.0934299975633621
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.996767997741699,
+            "mean_us_per_invocation": 1.0932449996471405
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.997983932495117,
+            "mean_us_per_invocation": 1.093434989452362
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.0222399979829788,
+        "2": 1.1164650321006775,
+        "4": 1.1007999628782272,
+        "8": 1.0830149799585342,
+        "16": 1.0934299975633621
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.076850803187371,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "28",
+        "power_W": "21.93"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "31",
+        "power_W": "84.53"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 1,
+      "H": 1024,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.640639781951904,
+            "mean_us_per_invocation": 1.037599965929985
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.618112087249756,
+            "mean_us_per_invocation": 1.0340800136327744
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.618112087249756,
+            "mean_us_per_invocation": 1.0340800136327744
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.618112087249756,
+            "mean_us_per_invocation": 1.0340800136327744
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.618112087249756,
+            "mean_us_per_invocation": 1.0340800136327744
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.19052791595459,
+            "mean_us_per_invocation": 1.1235199868679047
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.189504146575928,
+            "mean_us_per_invocation": 1.1233600229024887
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.19052791595459,
+            "mean_us_per_invocation": 1.1235199868679047
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.19052791595459,
+            "mean_us_per_invocation": 1.1235199868679047
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.188479900360107,
+            "mean_us_per_invocation": 1.1231999844312668
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.101439952850342,
+            "mean_us_per_invocation": 1.109599992632866
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.103487968444824,
+            "mean_us_per_invocation": 1.1099199950695038
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.102464199066162,
+            "mean_us_per_invocation": 1.1097600311040878
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.10041618347168,
+            "mean_us_per_invocation": 1.10944002866745
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.102367877960205,
+            "mean_us_per_invocation": 1.109744980931282
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.069695949554443,
+            "mean_us_per_invocation": 1.1046399921178818
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.068480014801025,
+            "mean_us_per_invocation": 1.1044500023126602
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.067584037780762,
+            "mean_us_per_invocation": 1.104310005903244
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.069695949554443,
+            "mean_us_per_invocation": 1.1046399921178818
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.069568157196045,
+            "mean_us_per_invocation": 1.104620024561882
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.219200134277344,
+            "mean_us_per_invocation": 1.128000020980835
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.216127872467041,
+            "mean_us_per_invocation": 1.1275199800729752
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.216127872467041,
+            "mean_us_per_invocation": 1.1275199800729752
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.216127872467041,
+            "mean_us_per_invocation": 1.1275199800729752
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.215104103088379,
+            "mean_us_per_invocation": 1.1273600161075592
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.0340800136327744,
+        "2": 1.1235199868679047,
+        "4": 1.109744980931282,
+        "8": 1.104620024561882,
+        "16": 1.1275199800729752
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.0731712887793787,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "29",
+        "power_W": "50.11"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "31",
+        "power_W": "84.44"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 1,
+      "H": 2560,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3516668975353241
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3516668975353241
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3516668975353241
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.24466626346111298
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3516668975353241
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.63379192352295,
+            "mean_us_per_invocation": 1.5052799880504608
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.61740779876709,
+            "mean_us_per_invocation": 1.5027199685573578
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.606143951416016,
+            "mean_us_per_invocation": 1.5009599924087524
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.605119705200195,
+            "mean_us_per_invocation": 1.5007999539375305
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.607168197631836,
+            "mean_us_per_invocation": 1.5011200308799744
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.934847831726074,
+            "mean_us_per_invocation": 1.552319973707199
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.93280029296875,
+            "mean_us_per_invocation": 1.5520000457763672
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.938943862915039,
+            "mean_us_per_invocation": 1.5529599785804749
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.93075180053711,
+            "mean_us_per_invocation": 1.5516799688339233
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.93075180053711,
+            "mean_us_per_invocation": 1.5516799688339233
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.284159660339355,
+            "mean_us_per_invocation": 1.2943999469280243
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.337311744689941,
+            "mean_us_per_invocation": 1.3027049601078033
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.283136367797852,
+            "mean_us_per_invocation": 1.2942400574684143
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.283136367797852,
+            "mean_us_per_invocation": 1.2942400574684143
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.282879829406738,
+            "mean_us_per_invocation": 1.2941999733448029
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.148991584777832,
+            "mean_us_per_invocation": 1.2732799351215363
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.161279678344727,
+            "mean_us_per_invocation": 1.2751999497413635
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.145919799804688,
+            "mean_us_per_invocation": 1.2727999687194824
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.147968292236328,
+            "mean_us_per_invocation": 1.2731200456619263
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.146944046020508,
+            "mean_us_per_invocation": 1.2729600071907043
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.248319625854492,
+            "mean_us_per_invocation": 1.2887999415397644
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.264703750610352,
+            "mean_us_per_invocation": 1.2913599610328674
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.245247840881348,
+            "mean_us_per_invocation": 1.2883199751377106
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.248031616210938,
+            "mean_us_per_invocation": 1.288754940032959
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.244223594665527,
+            "mean_us_per_invocation": 1.2881599366664886
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.5011200308799744,
+        "2": 1.5520000457763672,
+        "4": 1.2942400574684143,
+        "8": 1.2731200456619263,
+        "16": 1.288754940032959
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "30",
+        "power_W": "41.61"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "32",
+        "power_W": "83.74"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 1,
+      "H": 4096,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3785584270954132
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3785584270954132
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3785584270954132
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3785584270954132
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3785584270954132
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 11.200384140014648,
+            "mean_us_per_invocation": 1.7500600218772888
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 11.15340805053711,
+            "mean_us_per_invocation": 1.7427200078964233
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 11.142144203186035,
+            "mean_us_per_invocation": 1.740960031747818
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 11.140031814575195,
+            "mean_us_per_invocation": 1.7406299710273743
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 11.171839714050293,
+            "mean_us_per_invocation": 1.7455999553203583
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.792960166931152,
+            "mean_us_per_invocation": 1.6864000260829926
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.789888381958008,
+            "mean_us_per_invocation": 1.6859200596809387
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.788864135742188,
+            "mean_us_per_invocation": 1.6857600212097168
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.786815643310547,
+            "mean_us_per_invocation": 1.685439944267273
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.800127983093262,
+            "mean_us_per_invocation": 1.6875199973583221
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.757696151733398,
+            "mean_us_per_invocation": 1.5246400237083435
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.71878433227539,
+            "mean_us_per_invocation": 1.5185600519180298
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.72697639465332,
+            "mean_us_per_invocation": 1.5198400616645813
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.717696189880371,
+            "mean_us_per_invocation": 1.518390029668808
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.72697639465332,
+            "mean_us_per_invocation": 1.5198400616645813
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.430015563964844,
+            "mean_us_per_invocation": 1.4734399318695068
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.427840232849121,
+            "mean_us_per_invocation": 1.4731000363826752
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.430015563964844,
+            "mean_us_per_invocation": 1.4734399318695068
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.4269437789917,
+            "mean_us_per_invocation": 1.472959965467453
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.42796802520752,
+            "mean_us_per_invocation": 1.473120003938675
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.226143836975098,
+            "mean_us_per_invocation": 1.441584974527359
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.266176223754883,
+            "mean_us_per_invocation": 1.4478400349617004
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.224032402038574,
+            "mean_us_per_invocation": 1.4412550628185272
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.22316837310791,
+            "mean_us_per_invocation": 1.441120058298111
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.22111988067627,
+            "mean_us_per_invocation": 1.4407999813556671
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.7427200078964233,
+        "2": 1.6859200596809387,
+        "4": 1.5198400616645813,
+        "8": 1.473120003938675,
+        "16": 1.4412550628185272
+      },
+      "selected_warps": 16,
+      "search_speedup_vs_four_warps": 1.0545253930920269,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "30",
+        "power_W": "40.14"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "32",
+        "power_W": "84.29"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 32,
+      "H": 768,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3943839371204376
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3943839371204376
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3943839371204376
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3943839371204376
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.3943839371204376
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.091008186340332,
+            "mean_us_per_invocation": 1.1079700291156769
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.026688098907471,
+            "mean_us_per_invocation": 1.0979200154542923
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.0215678215026855,
+            "mean_us_per_invocation": 1.0971199721097946
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.020544052124023,
+            "mean_us_per_invocation": 1.0969600081443787
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.020544052124023,
+            "mean_us_per_invocation": 1.0969600081443787
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.593984127044678,
+            "mean_us_per_invocation": 1.186560019850731
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.592959880828857,
+            "mean_us_per_invocation": 1.186399981379509
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.59500789642334,
+            "mean_us_per_invocation": 1.1867199838161469
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.612415790557861,
+            "mean_us_per_invocation": 1.1894399672746658
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.589888095855713,
+            "mean_us_per_invocation": 1.1859200149774551
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.507967948913574,
+            "mean_us_per_invocation": 1.173119992017746
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.506944179534912,
+            "mean_us_per_invocation": 1.17296002805233
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.511040210723877,
+            "mean_us_per_invocation": 1.1736000329256058
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.506944179534912,
+            "mean_us_per_invocation": 1.17296002805233
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.505919933319092,
+            "mean_us_per_invocation": 1.172799989581108
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.235583782196045,
+            "mean_us_per_invocation": 1.130559965968132
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.2335357666015625,
+            "mean_us_per_invocation": 1.1302399635314941
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.238527774810791,
+            "mean_us_per_invocation": 1.131019964814186
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.2314558029174805,
+            "mean_us_per_invocation": 1.1299149692058563
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.2325119972229,
+            "mean_us_per_invocation": 1.1300799995660782
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.431935787200928,
+            "mean_us_per_invocation": 1.161239966750145
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.474175930023193,
+            "mean_us_per_invocation": 1.167839989066124
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.429120063781738,
+            "mean_us_per_invocation": 1.1608000099658966
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.428095817565918,
+            "mean_us_per_invocation": 1.1606399714946747
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.429120063781738,
+            "mean_us_per_invocation": 1.1608000099658966
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.0971199721097946,
+        "2": 1.186560019850731,
+        "4": 1.17296002805233,
+        "8": 1.1302399635314941,
+        "16": 1.1608000099658966
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.0691264928818065,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "30",
+        "power_W": "37.86"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "32",
+        "power_W": "89.86"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 32,
+      "H": 1024,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.38795775175094604
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.36158517003059387
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.38795775175094604
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.36158517003059387
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.36158517003059387
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.27023983001709,
+            "mean_us_per_invocation": 1.1359749734401703
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.206912040710449,
+            "mean_us_per_invocation": 1.1260800063610077
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.204864025115967,
+            "mean_us_per_invocation": 1.1257600039243698
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.2038397789001465,
+            "mean_us_per_invocation": 1.1255999654531479
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.225152015686035,
+            "mean_us_per_invocation": 1.128930002450943
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.764895915985107,
+            "mean_us_per_invocation": 1.213264986872673
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.762944221496582,
+            "mean_us_per_invocation": 1.212960034608841
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.762944221496582,
+            "mean_us_per_invocation": 1.212960034608841
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.762720108032227,
+            "mean_us_per_invocation": 1.2129250168800354
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.762944221496582,
+            "mean_us_per_invocation": 1.212960034608841
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.657472133636475,
+            "mean_us_per_invocation": 1.1964800208806992
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.660543918609619,
+            "mean_us_per_invocation": 1.196959987282753
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.659520149230957,
+            "mean_us_per_invocation": 1.196800023317337
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.657375812530518,
+            "mean_us_per_invocation": 1.1964649707078934
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.658495903015137,
+            "mean_us_per_invocation": 1.1966399848461151
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.642111778259277,
+            "mean_us_per_invocation": 1.194079965353012
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.646207809448242,
+            "mean_us_per_invocation": 1.1947199702262878
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.640063762664795,
+            "mean_us_per_invocation": 1.1937599629163742
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.642111778259277,
+            "mean_us_per_invocation": 1.194079965353012
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.641088008880615,
+            "mean_us_per_invocation": 1.1939200013875961
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.754752159118652,
+            "mean_us_per_invocation": 1.2116800248622894
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.7506561279296875,
+            "mean_us_per_invocation": 1.2110400199890137
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.749631881713867,
+            "mean_us_per_invocation": 1.2108799815177917
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.75167989730835,
+            "mean_us_per_invocation": 1.2111999839544296
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.7506561279296875,
+            "mean_us_per_invocation": 1.2110400199890137
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.1260800063610077,
+        "2": 1.212960034608841,
+        "4": 1.1966399848461151,
+        "8": 1.194079965353012,
+        "16": 1.2110400199890137
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.0626598270873542,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "31",
+        "power_W": "48.33"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "33",
+        "power_W": "92.11"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 32,
+      "H": 2560,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.43500956892967224
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.43500956892967224
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.43500956892967224
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.43500956892967224
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.43500956892967224
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.226688385009766,
+            "mean_us_per_invocation": 1.5979200601577759
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.175392150878906,
+            "mean_us_per_invocation": 1.589905023574829
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.170175552368164,
+            "mean_us_per_invocation": 1.5890899300575256
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.171392440795898,
+            "mean_us_per_invocation": 1.5892800688743591
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.171392440795898,
+            "mean_us_per_invocation": 1.5892800688743591
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.557439804077148,
+            "mean_us_per_invocation": 1.6495999693870544
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.556415557861328,
+            "mean_us_per_invocation": 1.6494399309158325
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.554368019104004,
+            "mean_us_per_invocation": 1.6491200029850006
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.552319526672363,
+            "mean_us_per_invocation": 1.6487999260425568
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.55129623413086,
+            "mean_us_per_invocation": 1.6486400365829468
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.973312377929688,
+            "mean_us_per_invocation": 1.4020800590515137
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.975359916687012,
+            "mean_us_per_invocation": 1.4023999869823456
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.971263885498047,
+            "mean_us_per_invocation": 1.4017599821090698
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.971199989318848,
+            "mean_us_per_invocation": 1.40174999833107
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.974111557006836,
+            "mean_us_per_invocation": 1.4022049307823181
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.755200386047363,
+            "mean_us_per_invocation": 1.3680000603199005
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.756223678588867,
+            "mean_us_per_invocation": 1.3681599497795105
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.754079818725586,
+            "mean_us_per_invocation": 1.3678249716758728
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.753151893615723,
+            "mean_us_per_invocation": 1.3676799833774567
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.753151893615723,
+            "mean_us_per_invocation": 1.3676799833774567
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.849408149719238,
+            "mean_us_per_invocation": 1.382720023393631
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.850272178649902,
+            "mean_us_per_invocation": 1.3828550279140472
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.854528427124023,
+            "mean_us_per_invocation": 1.3835200667381287
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.847359657287598,
+            "mean_us_per_invocation": 1.3823999464511871
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.847359657287598,
+            "mean_us_per_invocation": 1.3823999464511871
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.5892800688743591,
+        "2": 1.6491200029850006,
+        "4": 1.4020800590515137,
+        "8": 1.3678249716758728,
+        "16": 1.382720023393631
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "31",
+        "power_W": "37.33"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "33",
+        "power_W": "103.26"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 32,
+      "H": 4096,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4431052803993225
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.44263455271720886
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.44263455271720886
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.44263455271720886
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.44263455271720886
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 11.622400283813477,
+            "mean_us_per_invocation": 1.8160000443458557
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 11.569151878356934,
+            "mean_us_per_invocation": 1.8076799809932709
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 11.570079803466797,
+            "mean_us_per_invocation": 1.807824969291687
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 11.569120407104492,
+            "mean_us_per_invocation": 1.807675063610077
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 11.566880226135254,
+            "mean_us_per_invocation": 1.8073250353336334
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 11.266912460327148,
+            "mean_us_per_invocation": 1.760455071926117
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 11.262975692749023,
+            "mean_us_per_invocation": 1.759839951992035
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 11.2609281539917,
+            "mean_us_per_invocation": 1.759520024061203
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 11.258879661560059,
+            "mean_us_per_invocation": 1.7591999471187592
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 11.258879661560059,
+            "mean_us_per_invocation": 1.7591999471187592
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.315775871276855,
+            "mean_us_per_invocation": 1.6118399798870087
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.310463905334473,
+            "mean_us_per_invocation": 1.6110099852085114
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.30947208404541,
+            "mean_us_per_invocation": 1.6108550131320953
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.309632301330566,
+            "mean_us_per_invocation": 1.610880047082901
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.30742359161377,
+            "mean_us_per_invocation": 1.6105349361896515
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.000384330749512,
+            "mean_us_per_invocation": 1.5625600516796112
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.996288299560547,
+            "mean_us_per_invocation": 1.5619200468063354
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.027008056640625,
+            "mean_us_per_invocation": 1.5667200088500977
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.99731159210205,
+            "mean_us_per_invocation": 1.5620799362659454
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.995264053344727,
+            "mean_us_per_invocation": 1.5617600083351135
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.963520050048828,
+            "mean_us_per_invocation": 1.5568000078201294
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.965567588806152,
+            "mean_us_per_invocation": 1.5571199357509613
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.968640327453613,
+            "mean_us_per_invocation": 1.557600051164627
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.968640327453613,
+            "mean_us_per_invocation": 1.557600051164627
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.966527938842773,
+            "mean_us_per_invocation": 1.5572699904441833
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.8076799809932709,
+        "2": 1.759520024061203,
+        "4": 1.610880047082901,
+        "8": 1.5620799362659454,
+        "16": 1.5572699904441833
+      },
+      "selected_warps": 16,
+      "search_speedup_vs_four_warps": 1.0344256660487154,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "31",
+        "power_W": "48.32"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "33",
+        "power_W": "107.55"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 768,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47501423954963684
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47501423954963684
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47501423954963684
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47501423954963684
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47501423954963684
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.29529571533203,
+            "mean_us_per_invocation": 6.60863995552063
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.27276611328125,
+            "mean_us_per_invocation": 6.605119705200195
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.28096008300781,
+            "mean_us_per_invocation": 6.606400012969971
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.26652908325195,
+            "mean_us_per_invocation": 6.604145169258118
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.25833511352539,
+            "mean_us_per_invocation": 6.602864861488342
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.28300857543945,
+            "mean_us_per_invocation": 6.6067200899124146
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.27276611328125,
+            "mean_us_per_invocation": 6.605119705200195
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.29935836791992,
+            "mean_us_per_invocation": 6.609274744987488
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.275840759277344,
+            "mean_us_per_invocation": 6.605600118637085
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.27686309814453,
+            "mean_us_per_invocation": 6.605759859085083
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.429344177246094,
+            "mean_us_per_invocation": 6.629585027694702
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.427391052246094,
+            "mean_us_per_invocation": 6.629279851913452
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.4376335144043,
+            "mean_us_per_invocation": 6.630880236625671
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.451969146728516,
+            "mean_us_per_invocation": 6.633120179176331
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.4345588684082,
+            "mean_us_per_invocation": 6.630399823188782
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.39350509643555,
+            "mean_us_per_invocation": 6.623985171318054
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.417152404785156,
+            "mean_us_per_invocation": 6.627680063247681
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.424129486083984,
+            "mean_us_per_invocation": 6.628770232200623
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.40691375732422,
+            "mean_us_per_invocation": 6.626080274581909
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.40681457519531,
+            "mean_us_per_invocation": 6.626064777374268
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.2459831237793,
+            "mean_us_per_invocation": 6.600934863090515
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.24614334106445,
+            "mean_us_per_invocation": 6.600959897041321
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.26559829711914,
+            "mean_us_per_invocation": 6.603999733924866
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.238975524902344,
+            "mean_us_per_invocation": 6.599839925765991
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.2400016784668,
+            "mean_us_per_invocation": 6.600000262260437
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 6.605119705200195,
+        "2": 6.605759859085083,
+        "4": 6.630399823188782,
+        "8": 6.626080274581909,
+        "16": 6.600934863090515
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "32",
+        "power_W": "46.05"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "58.87"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 1024,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4620217978954315
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4645976126194
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4645976126194
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4645976126194
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4645976126194
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.30464172363281,
+            "mean_us_per_invocation": 8.797600269317627
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.26675033569336,
+            "mean_us_per_invocation": 8.791679739952087
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.28825759887695,
+            "mean_us_per_invocation": 8.795040249824524
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.26675033569336,
+            "mean_us_per_invocation": 8.791679739952087
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.29542541503906,
+            "mean_us_per_invocation": 8.796160221099854
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.28188705444336,
+            "mean_us_per_invocation": 8.794044852256775
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.31283187866211,
+            "mean_us_per_invocation": 8.798879981040955
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.27084732055664,
+            "mean_us_per_invocation": 8.792319893836975
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.28006362915039,
+            "mean_us_per_invocation": 8.793759942054749
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.28713607788086,
+            "mean_us_per_invocation": 8.794865012168884
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.61996841430664,
+            "mean_us_per_invocation": 8.846870064735413
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.6190071105957,
+            "mean_us_per_invocation": 8.846719861030579
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.617984771728516,
+            "mean_us_per_invocation": 8.84656012058258
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.612831115722656,
+            "mean_us_per_invocation": 8.845754861831665
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.630271911621094,
+            "mean_us_per_invocation": 8.848479986190796
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.55961608886719,
+            "mean_us_per_invocation": 8.837440013885498
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.56576156616211,
+            "mean_us_per_invocation": 8.83840024471283
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.55859375,
+            "mean_us_per_invocation": 8.8372802734375
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.569854736328125,
+            "mean_us_per_invocation": 8.83903980255127
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.571903228759766,
+            "mean_us_per_invocation": 8.839359879493713
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.571903228759766,
+            "mean_us_per_invocation": 8.839359879493713
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.58214569091797,
+            "mean_us_per_invocation": 8.840960264205933
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.577022552490234,
+            "mean_us_per_invocation": 8.8401597738266
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.567745208740234,
+            "mean_us_per_invocation": 8.838710188865662
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.55449676513672,
+            "mean_us_per_invocation": 8.836640119552612
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 8.795040249824524,
+        "2": 8.794044852256775,
+        "4": 8.846719861030579,
+        "8": 8.83840024471283,
+        "16": 8.839359879493713
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "33",
+        "power_W": "46.47"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "59.17"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 2560,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4732159972190857
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4732159972190857
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4732159972190857
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4705439507961273
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.4732159972190857
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 169.37266540527344,
+            "mean_us_per_invocation": 26.464478969573975
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 169.43411254882812,
+            "mean_us_per_invocation": 26.474080085754395
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 169.4535675048828,
+            "mean_us_per_invocation": 26.47711992263794
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 169.4371795654297,
+            "mean_us_per_invocation": 26.47455930709839
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 169.2948455810547,
+            "mean_us_per_invocation": 26.452319622039795
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 172.05555725097656,
+            "mean_us_per_invocation": 26.883680820465088
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 172.12399291992188,
+            "mean_us_per_invocation": 26.894373893737793
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 172.13031005859375,
+            "mean_us_per_invocation": 26.895360946655273
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 172.07501220703125,
+            "mean_us_per_invocation": 26.886720657348633
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 172.0432586669922,
+            "mean_us_per_invocation": 26.88175916671753
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 172.9607696533203,
+            "mean_us_per_invocation": 27.0251202583313
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 172.95462036132812,
+            "mean_us_per_invocation": 27.02415943145752
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 172.9628143310547,
+            "mean_us_per_invocation": 27.025439739227295
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 172.94540405273438,
+            "mean_us_per_invocation": 27.022719383239746
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 172.94415283203125,
+            "mean_us_per_invocation": 27.022523880004883
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 173.1717071533203,
+            "mean_us_per_invocation": 27.0580792427063
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 173.24441528320312,
+            "mean_us_per_invocation": 27.06943988800049
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 173.19833374023438,
+            "mean_us_per_invocation": 27.06223964691162
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 173.11538696289062,
+            "mean_us_per_invocation": 27.04927921295166
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 173.21446228027344,
+            "mean_us_per_invocation": 27.064759731292725
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 169.73004150390625,
+            "mean_us_per_invocation": 26.52031898498535
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 169.6931915283203,
+            "mean_us_per_invocation": 26.51456117630005
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 169.70445251464844,
+            "mean_us_per_invocation": 26.51632070541382
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 169.60716247558594,
+            "mean_us_per_invocation": 26.501119136810303
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 169.75975036621094,
+            "mean_us_per_invocation": 26.52496099472046
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 26.474080085754395,
+        "2": 26.886720657348633,
+        "4": 27.02415943145752,
+        "8": 27.06223964691162,
+        "16": 26.51632070541382
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "38.73"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "59.37"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "float16",
+      "M": 2048,
+      "H": 4096,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47546595335006714
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47546595335006714
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47546595335006714
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47546595335006714
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.47546595335006714
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 430.1578369140625,
+            "mean_us_per_invocation": 67.21216201782227
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 430.18341064453125,
+            "mean_us_per_invocation": 67.21615791320801
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 430.20574951171875,
+            "mean_us_per_invocation": 67.21964836120605
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 430.16192626953125,
+            "mean_us_per_invocation": 67.21280097961426
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 430.23974609375,
+            "mean_us_per_invocation": 67.22496032714844
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 424.9617919921875,
+            "mean_us_per_invocation": 66.4002799987793
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 424.9610290527344,
+            "mean_us_per_invocation": 66.40016078948975
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 424.94549560546875,
+            "mean_us_per_invocation": 66.39773368835449
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 425.0142822265625,
+            "mean_us_per_invocation": 66.40848159790039
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 424.8688659667969,
+            "mean_us_per_invocation": 66.38576030731201
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 428.5327453613281,
+            "mean_us_per_invocation": 66.95824146270752
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 428.5614013671875,
+            "mean_us_per_invocation": 66.96271896362305
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 428.5357971191406,
+            "mean_us_per_invocation": 66.95871829986572
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 428.5593566894531,
+            "mean_us_per_invocation": 66.96239948272705
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 428.58599853515625,
+            "mean_us_per_invocation": 66.96656227111816
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 440.0997314453125,
+            "mean_us_per_invocation": 68.76558303833008
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 439.9964294433594,
+            "mean_us_per_invocation": 68.7494421005249
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 440.0977783203125,
+            "mean_us_per_invocation": 68.76527786254883
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 439.978759765625,
+            "mean_us_per_invocation": 68.7466812133789
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 440.06298828125,
+            "mean_us_per_invocation": 68.75984191894531
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 441.35321044921875,
+            "mean_us_per_invocation": 68.96143913269043
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 441.270263671875,
+            "mean_us_per_invocation": 68.94847869873047
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 441.25799560546875,
+            "mean_us_per_invocation": 68.94656181335449
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 441.2835693359375,
+            "mean_us_per_invocation": 68.95055770874023
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 441.1627502441406,
+            "mean_us_per_invocation": 68.93167972564697
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 67.21615791320801,
+        "2": 66.40016078948975,
+        "4": 66.96239948272705,
+        "8": 68.75984191894531,
+        "16": 68.94847869873047
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "58.54"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "58.63"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 768,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.563583850860596,
+            "mean_us_per_invocation": 1.025559976696968
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.525951862335205,
+            "mean_us_per_invocation": 1.0196799784898758
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.52185583114624,
+            "mean_us_per_invocation": 1.0190399736166
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.5228800773620605,
+            "mean_us_per_invocation": 1.019200012087822
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.524672031402588,
+            "mean_us_per_invocation": 1.0194800049066544
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.142399787902832,
+            "mean_us_per_invocation": 1.1159999668598175
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.14137601852417,
+            "mean_us_per_invocation": 1.1158400028944016
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.142399787902832,
+            "mean_us_per_invocation": 1.1159999668598175
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.14137601852417,
+            "mean_us_per_invocation": 1.1158400028944016
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.14137601852417,
+            "mean_us_per_invocation": 1.1158400028944016
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.9713921546936035,
+            "mean_us_per_invocation": 1.0892800241708755
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.972415924072266,
+            "mean_us_per_invocation": 1.0894399881362915
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.972288131713867,
+            "mean_us_per_invocation": 1.0894200205802917
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.972415924072266,
+            "mean_us_per_invocation": 1.0894399881362915
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.970367908477783,
+            "mean_us_per_invocation": 1.0891199856996536
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.9120001792907715,
+            "mean_us_per_invocation": 1.080000028014183
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.9120001792907715,
+            "mean_us_per_invocation": 1.080000028014183
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.913919925689697,
+            "mean_us_per_invocation": 1.0802999883890152
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.913023948669434,
+            "mean_us_per_invocation": 1.080159991979599
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.913023948669434,
+            "mean_us_per_invocation": 1.080159991979599
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.9918718338012695,
+            "mean_us_per_invocation": 1.0924799740314484
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.989727973937988,
+            "mean_us_per_invocation": 1.0921449959278107
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.9918718338012695,
+            "mean_us_per_invocation": 1.0924799740314484
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.990848064422607,
+            "mean_us_per_invocation": 1.0923200100660324
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.990848064422607,
+            "mean_us_per_invocation": 1.0923200100660324
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.0194800049066544,
+        "2": 1.1158400028944016,
+        "4": 1.0894200205802917,
+        "8": 1.080159991979599,
+        "16": 1.0923200100660324
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.068603616880197,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "68.48"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "87.99"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 1024,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 6.801407814025879,
+            "mean_us_per_invocation": 1.0627199709415436
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 6.7645440101623535,
+            "mean_us_per_invocation": 1.0569600015878677
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 6.7645440101623535,
+            "mean_us_per_invocation": 1.0569600015878677
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 6.763519763946533,
+            "mean_us_per_invocation": 1.0567999631166458
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 6.762495994567871,
+            "mean_us_per_invocation": 1.0566399991512299
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.858176231384277,
+            "mean_us_per_invocation": 1.2278400361537933
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.855103969573975,
+            "mean_us_per_invocation": 1.2273599952459335
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.854015827178955,
+            "mean_us_per_invocation": 1.2271899729967117
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.8540802001953125,
+            "mean_us_per_invocation": 1.2272000312805176
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.8540802001953125,
+            "mean_us_per_invocation": 1.2272000312805176
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.069695949554443,
+            "mean_us_per_invocation": 1.1046399921178818
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.068511962890625,
+            "mean_us_per_invocation": 1.1044549942016602
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.067647933959961,
+            "mean_us_per_invocation": 1.104319989681244
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.067647933959961,
+            "mean_us_per_invocation": 1.104319989681244
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.068416118621826,
+            "mean_us_per_invocation": 1.1044400185346603
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.048992156982422,
+            "mean_us_per_invocation": 1.1014050245285034
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.044095993041992,
+            "mean_us_per_invocation": 1.1006399989128113
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.04204797744751,
+            "mean_us_per_invocation": 1.1003199964761734
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.044095993041992,
+            "mean_us_per_invocation": 1.1006399989128113
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.044095993041992,
+            "mean_us_per_invocation": 1.1006399989128113
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.188479900360107,
+            "mean_us_per_invocation": 1.1231999844312668
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.187456130981445,
+            "mean_us_per_invocation": 1.1230400204658508
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.188479900360107,
+            "mean_us_per_invocation": 1.1231999844312668
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.19052791595459,
+            "mean_us_per_invocation": 1.1235199868679047
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.188479900360107,
+            "mean_us_per_invocation": 1.1231999844312668
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.0569600015878677,
+        "2": 1.2272000312805176,
+        "4": 1.1044400185346603,
+        "8": 1.1006399989128113,
+        "16": 1.1231999844312668
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.0449212996475397,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "57.26"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "85.91"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 2560,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.22634674608707428
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.481216430664062,
+            "mean_us_per_invocation": 1.4814400672912598
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.457663536071777,
+            "mean_us_per_invocation": 1.4777599275112152
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.456640243530273,
+            "mean_us_per_invocation": 1.4776000380516052
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.462783813476562,
+            "mean_us_per_invocation": 1.478559970855713
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.456640243530273,
+            "mean_us_per_invocation": 1.4776000380516052
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.393152236938477,
+            "mean_us_per_invocation": 1.467680037021637
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.392127990722656,
+            "mean_us_per_invocation": 1.467519998550415
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.392000198364258,
+            "mean_us_per_invocation": 1.4675000309944153
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.391103744506836,
+            "mean_us_per_invocation": 1.4673599600791931
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.391103744506836,
+            "mean_us_per_invocation": 1.4673599600791931
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.927200317382812,
+            "mean_us_per_invocation": 1.3948750495910645
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.926143646240234,
+            "mean_us_per_invocation": 1.3947099447250366
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.926143646240234,
+            "mean_us_per_invocation": 1.3947099447250366
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.92518424987793,
+            "mean_us_per_invocation": 1.3945600390434265
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.926207542419434,
+            "mean_us_per_invocation": 1.3947199285030365
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.126303672790527,
+            "mean_us_per_invocation": 1.26973494887352
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.12441635131836,
+            "mean_us_per_invocation": 1.2694400548934937
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.124287605285645,
+            "mean_us_per_invocation": 1.269419938325882
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.12441635131836,
+            "mean_us_per_invocation": 1.2694400548934937
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.125439643859863,
+            "mean_us_per_invocation": 1.2695999443531036
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.20633602142334,
+            "mean_us_per_invocation": 1.2822400033473969
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.209343910217285,
+            "mean_us_per_invocation": 1.2827099859714508
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.20736026763916,
+            "mean_us_per_invocation": 1.2824000418186188
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.208191871643066,
+            "mean_us_per_invocation": 1.2825299799442291
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.209407806396484,
+            "mean_us_per_invocation": 1.2827199697494507
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.4777599275112152,
+        "2": 1.4675000309944153,
+        "4": 1.3947099447250366,
+        "8": 1.2694400548934937,
+        "16": 1.2825299799442291
+      },
+      "selected_warps": 8,
+      "search_speedup_vs_four_warps": 1.0986812172411349,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "40.75"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "86.76"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 1,
+      "H": 4096,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.0
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 11.04588794708252,
+            "mean_us_per_invocation": 1.7259199917316437
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 11.019264221191406,
+            "mean_us_per_invocation": 1.7217600345611572
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 11.018176078796387,
+            "mean_us_per_invocation": 1.7215900123119354
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 11.019264221191406,
+            "mean_us_per_invocation": 1.7217600345611572
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 11.025376319885254,
+            "mean_us_per_invocation": 1.722715049982071
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.687487602233887,
+            "mean_us_per_invocation": 1.6699199378490448
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.686464309692383,
+            "mean_us_per_invocation": 1.6697600483894348
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.684415817260742,
+            "mean_us_per_invocation": 1.669439971446991
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.684160232543945,
+            "mean_us_per_invocation": 1.6694000363349915
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.680319786071777,
+            "mean_us_per_invocation": 1.6687999665737152
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.266624450683594,
+            "mean_us_per_invocation": 1.6041600704193115
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.266624450683594,
+            "mean_us_per_invocation": 1.6041600704193115
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.265600204467773,
+            "mean_us_per_invocation": 1.6040000319480896
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.266624450683594,
+            "mean_us_per_invocation": 1.6041600704193115
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.266624450683594,
+            "mean_us_per_invocation": 1.6041600704193115
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.711615562438965,
+            "mean_us_per_invocation": 1.5174399316310883
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.710592269897461,
+            "mean_us_per_invocation": 1.5172800421714783
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.710399627685547,
+            "mean_us_per_invocation": 1.5172499418258667
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.710399627685547,
+            "mean_us_per_invocation": 1.5172499418258667
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.710592269897461,
+            "mean_us_per_invocation": 1.5172800421714783
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.241600036621094,
+            "mean_us_per_invocation": 1.444000005722046
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.237504005432129,
+            "mean_us_per_invocation": 1.4433600008487701
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.23852825164795,
+            "mean_us_per_invocation": 1.443520039319992
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.23852825164795,
+            "mean_us_per_invocation": 1.443520039319992
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.238431930541992,
+            "mean_us_per_invocation": 1.4435049891471863
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.7217600345611572,
+        "2": 1.669439971446991,
+        "4": 1.6041600704193115,
+        "8": 1.5172800421714783,
+        "16": 1.443520039319992
+      },
+      "selected_warps": 16,
+      "search_speedup_vs_four_warps": 1.1112835476638019,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "48.08"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "87.87"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 768,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5458515286445618
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5458515286445618
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5458515286445618
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5458515286445618
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5458515286445618
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.154687881469727,
+            "mean_us_per_invocation": 1.1179199814796448
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.089151859283447,
+            "mean_us_per_invocation": 1.1076799780130386
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.088128089904785,
+            "mean_us_per_invocation": 1.1075200140476227
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.099391937255859,
+            "mean_us_per_invocation": 1.109279990196228
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.09219217300415,
+            "mean_us_per_invocation": 1.1081550270318985
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.684095859527588,
+            "mean_us_per_invocation": 1.2006399780511856
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.683072090148926,
+            "mean_us_per_invocation": 1.2004800140857697
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.6820478439331055,
+            "mean_us_per_invocation": 1.2003199756145477
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.687071800231934,
+            "mean_us_per_invocation": 1.2011049687862396
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.687168121337891,
+            "mean_us_per_invocation": 1.2011200189590454
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.525375843048096,
+            "mean_us_per_invocation": 1.175839975476265
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.588863849639893,
+            "mean_us_per_invocation": 1.1857599765062332
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.523327827453613,
+            "mean_us_per_invocation": 1.175519973039627
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.536640167236328,
+            "mean_us_per_invocation": 1.1776000261306763
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.527423858642578,
+            "mean_us_per_invocation": 1.1761599779129028
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.280447959899902,
+            "mean_us_per_invocation": 1.1375699937343597
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.282688140869141,
+            "mean_us_per_invocation": 1.1379200220108032
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.279520034790039,
+            "mean_us_per_invocation": 1.1374250054359436
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.278592109680176,
+            "mean_us_per_invocation": 1.1372800171375275
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.283711910247803,
+            "mean_us_per_invocation": 1.1380799859762192
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.49567985534668,
+            "mean_us_per_invocation": 1.1711999773979187
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.494656085968018,
+            "mean_us_per_invocation": 1.1710400134325027
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.493535995483398,
+            "mean_us_per_invocation": 1.170864999294281
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.5089921951293945,
+            "mean_us_per_invocation": 1.173280030488968
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.50054407119751,
+            "mean_us_per_invocation": 1.171960011124611
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.1081550270318985,
+        "2": 1.2006399780511856,
+        "4": 1.1761599779129028,
+        "8": 1.1375699937343597,
+        "16": 1.1711999773979187
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.0613677231272867,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "60.43"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "93.96"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 1024,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.507099449634552
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.507099449634552
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.507099449634552
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.507099449634552
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.507099449634552
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.464896202087402,
+            "mean_us_per_invocation": 1.1663900315761566
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.43936014175415,
+            "mean_us_per_invocation": 1.162400022149086
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.437312126159668,
+            "mean_us_per_invocation": 1.1620800197124481
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.4352641105651855,
+            "mean_us_per_invocation": 1.1617600172758102
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.439328193664551,
+            "mean_us_per_invocation": 1.162395030260086
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.521727561950684,
+            "mean_us_per_invocation": 1.3315199315547943
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.51968002319336,
+            "mean_us_per_invocation": 1.3312000036239624
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.517631530761719,
+            "mean_us_per_invocation": 1.3308799266815186
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.515583992004395,
+            "mean_us_per_invocation": 1.3305599987506866
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.515583992004395,
+            "mean_us_per_invocation": 1.3305599987506866
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.71670389175415,
+            "mean_us_per_invocation": 1.205734983086586
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.716864109039307,
+            "mean_us_per_invocation": 1.2057600170373917
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.712768077850342,
+            "mean_us_per_invocation": 1.205120012164116
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.715616226196289,
+            "mean_us_per_invocation": 1.2055650353431702
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.713696002960205,
+            "mean_us_per_invocation": 1.205265000462532
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.697408199310303,
+            "mean_us_per_invocation": 1.2027200311422348
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.697375774383545,
+            "mean_us_per_invocation": 1.202714964747429
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.697408199310303,
+            "mean_us_per_invocation": 1.2027200311422348
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.698304176330566,
+            "mean_us_per_invocation": 1.202860027551651
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.697408199310303,
+            "mean_us_per_invocation": 1.2027200311422348
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 7.818240165710449,
+            "mean_us_per_invocation": 1.2216000258922577
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 7.80998420715332,
+            "mean_us_per_invocation": 1.2203100323677063
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 7.809023857116699,
+            "mean_us_per_invocation": 1.2201599776744843
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 7.809023857116699,
+            "mean_us_per_invocation": 1.2201599776744843
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 7.814144134521484,
+            "mean_us_per_invocation": 1.220960021018982
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.162395030260086,
+        "2": 1.3308799266815186,
+        "4": 1.2055650353431702,
+        "8": 1.2027200311422348,
+        "16": 1.2203100323677063
+      },
+      "selected_warps": 1,
+      "search_speedup_vs_four_warps": 1.0371388417528118,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "49.03"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "95.26"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 2560,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5530973672866821
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5530973672866821
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5530973672866821
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5530973672866821
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.5530973672866821
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.086400032043457,
+            "mean_us_per_invocation": 1.5760000050067902
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.057727813720703,
+            "mean_us_per_invocation": 1.5715199708938599
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.055680274963379,
+            "mean_us_per_invocation": 1.571200042963028
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.055487632751465,
+            "mean_us_per_invocation": 1.5711699426174164
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.055680274963379,
+            "mean_us_per_invocation": 1.571200042963028
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.11292839050293,
+            "mean_us_per_invocation": 1.5801450610160828
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.108927726745605,
+            "mean_us_per_invocation": 1.5795199573040009
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.110976219177246,
+            "mean_us_per_invocation": 1.5798400342464447
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.109951972961426,
+            "mean_us_per_invocation": 1.5796799957752228
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.110976219177246,
+            "mean_us_per_invocation": 1.5798400342464447
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 9.668607711791992,
+            "mean_us_per_invocation": 1.5107199549674988
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 9.672703742980957,
+            "mean_us_per_invocation": 1.5113599598407745
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 9.666463851928711,
+            "mean_us_per_invocation": 1.510384976863861
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 9.665375709533691,
+            "mean_us_per_invocation": 1.5102149546146393
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 9.665535926818848,
+            "mean_us_per_invocation": 1.510239988565445
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.860671997070312,
+            "mean_us_per_invocation": 1.3844799995422363
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.863615989685059,
+            "mean_us_per_invocation": 1.3849399983882904
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.856575965881348,
+            "mean_us_per_invocation": 1.3838399946689606
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.859647750854492,
+            "mean_us_per_invocation": 1.3843199610710144
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.856575965881348,
+            "mean_us_per_invocation": 1.3838399946689606
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 8.943615913391113,
+            "mean_us_per_invocation": 1.3974399864673615
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 8.941568374633789,
+            "mean_us_per_invocation": 1.3971200585365295
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 8.942560195922852,
+            "mean_us_per_invocation": 1.3972750306129456
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 8.941568374633789,
+            "mean_us_per_invocation": 1.3971200585365295
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 8.941568374633789,
+            "mean_us_per_invocation": 1.3971200585365295
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.571200042963028,
+        "2": 1.5798400342464447,
+        "4": 1.510384976863861,
+        "8": 1.3843199610710144,
+        "16": 1.3971200585365295
+      },
+      "selected_warps": 8,
+      "search_speedup_vs_four_warps": 1.0910663859064151,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "36.55"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "103.91"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 32,
+      "H": 4096,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.6675567030906677
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.6675567030906677
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.6675567030906677
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.6675567030906677
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.6675567030906677
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 11.735039710998535,
+            "mean_us_per_invocation": 1.8335999548435211
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 11.737088203430176,
+            "mean_us_per_invocation": 1.833920031785965
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 11.720704078674316,
+            "mean_us_per_invocation": 1.831360012292862
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 11.720704078674316,
+            "mean_us_per_invocation": 1.831360012292862
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 11.73196792602539,
+            "mean_us_per_invocation": 1.8331199884414673
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 11.26195240020752,
+            "mean_us_per_invocation": 1.759680062532425
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 11.258879661560059,
+            "mean_us_per_invocation": 1.7591999471187592
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 11.260736465454102,
+            "mean_us_per_invocation": 1.7594900727272034
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 11.262975692749023,
+            "mean_us_per_invocation": 1.759839951992035
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 11.2609281539917,
+            "mean_us_per_invocation": 1.759520024061203
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 11.065343856811523,
+            "mean_us_per_invocation": 1.7289599776268005
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 11.061087608337402,
+            "mean_us_per_invocation": 1.7282949388027191
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 11.073535919189453,
+            "mean_us_per_invocation": 1.730239987373352
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 11.073535919189453,
+            "mean_us_per_invocation": 1.730239987373352
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 11.067392349243164,
+            "mean_us_per_invocation": 1.7292800545692444
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.507007598876953,
+            "mean_us_per_invocation": 1.641719937324524
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.503168106079102,
+            "mean_us_per_invocation": 1.6411200165748596
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.505215644836426,
+            "mean_us_per_invocation": 1.6414399445056915
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.519552230834961,
+            "mean_us_per_invocation": 1.6436800360679626
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.513376235961914,
+            "mean_us_per_invocation": 1.642715036869049
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 10.064767837524414,
+            "mean_us_per_invocation": 1.5726199746131897
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 10.059776306152344,
+            "mean_us_per_invocation": 1.5718400478363037
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 10.074975967407227,
+            "mean_us_per_invocation": 1.5742149949073792
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 10.075008392333984,
+            "mean_us_per_invocation": 1.574220061302185
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 10.067968368530273,
+            "mean_us_per_invocation": 1.5731200575828552
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 1.8331199884414673,
+        "2": 1.759520024061203,
+        "4": 1.7292800545692444,
+        "8": 1.641719937324524,
+        "16": 1.5731200575828552
+      },
+      "selected_warps": 16,
+      "search_speedup_vs_four_warps": 1.0992676917655817,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "48.80"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "106.07"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 768,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.308448791503906,
+            "mean_us_per_invocation": 6.610695123672485
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.256385803222656,
+            "mean_us_per_invocation": 6.60256028175354
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.259456634521484,
+            "mean_us_per_invocation": 6.603040099143982
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.272544860839844,
+            "mean_us_per_invocation": 6.605085134506226
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.28812789916992,
+            "mean_us_per_invocation": 6.6075199842453
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.25843048095703,
+            "mean_us_per_invocation": 6.602879762649536
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.254337310791016,
+            "mean_us_per_invocation": 6.602240204811096
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.258209228515625,
+            "mean_us_per_invocation": 6.602845191955566
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.27155303955078,
+            "mean_us_per_invocation": 6.60493016242981
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.2553596496582,
+            "mean_us_per_invocation": 6.602399945259094
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.459999084472656,
+            "mean_us_per_invocation": 6.6343748569488525
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.46323013305664,
+            "mean_us_per_invocation": 6.6348797082901
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.46015930175781,
+            "mean_us_per_invocation": 6.634399890899658
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.45606231689453,
+            "mean_us_per_invocation": 6.6337597370147705
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.455039978027344,
+            "mean_us_per_invocation": 6.6335999965667725
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.38131332397461,
+            "mean_us_per_invocation": 6.622080206871033
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.38131332397461,
+            "mean_us_per_invocation": 6.622080206871033
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.369022369384766,
+            "mean_us_per_invocation": 6.62015974521637
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.38431930541992,
+            "mean_us_per_invocation": 6.622549891471863
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.37311935424805,
+            "mean_us_per_invocation": 6.620799899101257
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 42.31475067138672,
+            "mean_us_per_invocation": 6.611679792404175
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 42.30838394165039,
+            "mean_us_per_invocation": 6.6106849908828735
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 42.31270217895508,
+            "mean_us_per_invocation": 6.611359715461731
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 42.31452941894531,
+            "mean_us_per_invocation": 6.611645221710205
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 42.33216094970703,
+            "mean_us_per_invocation": 6.614400148391724
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 6.605085134506226,
+        "2": 6.602845191955566,
+        "4": 6.6343748569488525,
+        "8": 6.622080206871033,
+        "16": 6.611645221710205
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "34",
+        "power_W": "55.59"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "58.96"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 1024,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.30771255493164,
+            "mean_us_per_invocation": 8.798080086708069
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.26367950439453,
+            "mean_us_per_invocation": 8.791199922561646
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.2737922668457,
+            "mean_us_per_invocation": 8.792780041694641
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.264705657958984,
+            "mean_us_per_invocation": 8.791360259056091
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.25958251953125,
+            "mean_us_per_invocation": 8.790559768676758
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.30259323120117,
+            "mean_us_per_invocation": 8.797280192375183
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.30873489379883,
+            "mean_us_per_invocation": 8.798239827156067
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.30464172363281,
+            "mean_us_per_invocation": 8.797600269317627
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.337215423583984,
+            "mean_us_per_invocation": 8.802689909934998
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.30361557006836,
+            "mean_us_per_invocation": 8.797439932823181
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.65484619140625,
+            "mean_us_per_invocation": 8.852319717407227
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.66508865356445,
+            "mean_us_per_invocation": 8.853920102119446
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.65670394897461,
+            "mean_us_per_invocation": 8.852609992027283
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.67327880859375,
+            "mean_us_per_invocation": 8.855199813842773
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.676353454589844,
+            "mean_us_per_invocation": 8.855680227279663
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.57497787475586,
+            "mean_us_per_invocation": 8.839840292930603
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.57804870605469,
+            "mean_us_per_invocation": 8.840320110321045
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.58214569091797,
+            "mean_us_per_invocation": 8.840960264205933
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.57276916503906,
+            "mean_us_per_invocation": 8.839495182037354
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.5645751953125,
+            "mean_us_per_invocation": 8.838214874267578
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 56.54732894897461,
+            "mean_us_per_invocation": 8.835520148277283
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 56.584190368652344,
+            "mean_us_per_invocation": 8.841279745101929
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 56.560638427734375,
+            "mean_us_per_invocation": 8.837599754333496
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 56.55961608886719,
+            "mean_us_per_invocation": 8.837440013885498
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 56.55641555786133,
+            "mean_us_per_invocation": 8.836939930915833
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 8.791360259056091,
+        "2": 8.797600269317627,
+        "4": 8.853920102119446,
+        "8": 8.839840292930603,
+        "16": 8.837440013885498
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "40.54"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "58.90"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 2560,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.7052186131477356
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.7052186131477356
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.738552451133728
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 165.6012725830078,
+            "mean_us_per_invocation": 25.87519884109497
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 165.49888610839844,
+            "mean_us_per_invocation": 25.859200954437256
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 165.36268615722656,
+            "mean_us_per_invocation": 25.83791971206665
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 165.5142364501953,
+            "mean_us_per_invocation": 25.861599445343018
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 165.44338989257812,
+            "mean_us_per_invocation": 25.850529670715332
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 170.3434295654297,
+            "mean_us_per_invocation": 26.61616086959839
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 170.32191467285156,
+            "mean_us_per_invocation": 26.612799167633057
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 170.3462677001953,
+            "mean_us_per_invocation": 26.616604328155518
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 170.2830047607422,
+            "mean_us_per_invocation": 26.606719493865967
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 170.36082458496094,
+            "mean_us_per_invocation": 26.618878841400146
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 169.98912048339844,
+            "mean_us_per_invocation": 26.560800075531006
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 169.98605346679688,
+            "mean_us_per_invocation": 26.56032085418701
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 169.9727325439453,
+            "mean_us_per_invocation": 26.558239459991455
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 169.92562866210938,
+            "mean_us_per_invocation": 26.55087947845459
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 169.84451293945312,
+            "mean_us_per_invocation": 26.53820514678955
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 171.24453735351562,
+            "mean_us_per_invocation": 26.756958961486816
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 171.17593383789062,
+            "mean_us_per_invocation": 26.74623966217041
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 171.18821716308594,
+            "mean_us_per_invocation": 26.748158931732178
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 171.32528686523438,
+            "mean_us_per_invocation": 26.76957607269287
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 171.21469116210938,
+            "mean_us_per_invocation": 26.75229549407959
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 169.2876739501953,
+            "mean_us_per_invocation": 26.451199054718018
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 169.2876739501953,
+            "mean_us_per_invocation": 26.451199054718018
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 169.16761779785156,
+            "mean_us_per_invocation": 26.432440280914307
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 169.2190704345703,
+            "mean_us_per_invocation": 26.44047975540161
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 169.20361328125,
+            "mean_us_per_invocation": 26.438064575195312
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 25.859200954437256,
+        "2": 26.61616086959839,
+        "4": 26.558239459991455,
+        "8": 26.75229549407959,
+        "16": 26.44047975540161
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "35.24"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "58.94"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    },
+    {
+      "dtype": "bfloat16",
+      "M": 2048,
+      "H": 4096,
+      "protocol_sha256": "0281c41ef0ca56a71875c8d054925b540e49b9b82e8f8ba45dce69aa1ca9ba4a",
+      "source_sha256": {
+        "scripts/benchmark_pilot.py": "df568396ba37ae802006346aefcf552da542e128f62c787cafe0ec668b60e12b",
+        "rmsnorm_lab/reference.py": "e065bf975b986768e41cba7f5710ed110b59cb5ee03c3b1f7a2bc85bdfaf5f5a",
+        "rmsnorm_lab/triton_kernel.py": "dd027cafb1a8ec65f7e4294b92bfb0874ce8a417fbf6544483cfb0453f258d29",
+        "scripts/check_reference.py": "f25a42a9367945ce118044055839fd5b48ffa332857e1dca3c2b89a0f5a12223",
+        "scripts/check_compiled_reference.py": "57d5086a9ca4585acc46574a36dd9e8c9bb77c08a889037d49c5c0d30619de34",
+        "scripts/validate_triton.py": "e8bd328e2623ef91037758ec2355e2a6b1de1051cdce4505ddb9608e2f47d492",
+        "scripts/validate_compiled_matrix.py": "80a0057ce233f58e21ebdea92648fbf6ef87c79ceddccdfe31349e7afb36c2d2",
+        "specs/contract_v1.json": "b0438136d59af8516ee18bd33c0112b1b6f0d4b46372e623a3e158cb3a29311d",
+        "scripts/benchmark_matrix.py": "823d6948df36f08d9635c55cb52dbd3c1742ce29f1b87046a4f0ddbfe36ede71",
+        "scripts/tune_warps.py": "4498fd7e9de316c73fc2a4dd2c83397bf1df9e7852e9c3fc59b8144a4a28a906",
+        "rmsnorm_lab/launch_variants.py": "508b379280a3afa195317933ca000d97e37c71acf39f04714e2c15591f3491c9"
+      },
+      "gpu_identity": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05"
+      },
+      "environment_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "candidate_numerical_checks": {
+        "1": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.733137845993042
+        },
+        "2": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.7102272510528564
+        },
+        "4": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.7102272510528564
+        },
+        "8": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.7102272510528564
+        },
+        "16": {
+          "random_checks": 10,
+          "boundary_checks": 4,
+          "max_fraction_of_allowed_error": 0.7102272510528564
+        }
+      },
+      "batches": {
+        "1": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 420.66943359375,
+            "mean_us_per_invocation": 65.72959899902344
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 420.72149658203125,
+            "mean_us_per_invocation": 65.73773384094238
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 420.62030029296875,
+            "mean_us_per_invocation": 65.72192192077637
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 420.7933349609375,
+            "mean_us_per_invocation": 65.74895858764648
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 420.8097229003906,
+            "mean_us_per_invocation": 65.75151920318604
+          }
+        ],
+        "2": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 424.2626647949219,
+            "mean_us_per_invocation": 66.29104137420654
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 424.352783203125,
+            "mean_us_per_invocation": 66.30512237548828
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 424.2186279296875,
+            "mean_us_per_invocation": 66.28416061401367
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 424.32000732421875,
+            "mean_us_per_invocation": 66.30000114440918
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 424.2073669433594,
+            "mean_us_per_invocation": 66.2824010848999
+          }
+        ],
+        "4": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 430.2182312011719,
+            "mean_us_per_invocation": 67.2215986251831
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 430.17010498046875,
+            "mean_us_per_invocation": 67.21407890319824
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 430.12811279296875,
+            "mean_us_per_invocation": 67.20751762390137
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 430.3349609375,
+            "mean_us_per_invocation": 67.23983764648438
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 430.31756591796875,
+            "mean_us_per_invocation": 67.23711967468262
+          }
+        ],
+        "8": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 435.7304382324219,
+            "mean_us_per_invocation": 68.08288097381592
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 435.7621765136719,
+            "mean_us_per_invocation": 68.08784008026123
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 435.704833984375,
+            "mean_us_per_invocation": 68.0788803100586
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 435.9372253417969,
+            "mean_us_per_invocation": 68.11519145965576
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 435.8021240234375,
+            "mean_us_per_invocation": 68.09408187866211
+          }
+        ],
+        "16": [
+          {
+            "repetition": 1,
+            "batch_elapsed_ms": 441.8846740722656,
+            "mean_us_per_invocation": 69.0444803237915
+          },
+          {
+            "repetition": 2,
+            "batch_elapsed_ms": 441.9768371582031,
+            "mean_us_per_invocation": 69.05888080596924
+          },
+          {
+            "repetition": 3,
+            "batch_elapsed_ms": 441.8099060058594,
+            "mean_us_per_invocation": 69.03279781341553
+          },
+          {
+            "repetition": 4,
+            "batch_elapsed_ms": 441.9584045410156,
+            "mean_us_per_invocation": 69.05600070953369
+          },
+          {
+            "repetition": 5,
+            "batch_elapsed_ms": 441.9543151855469,
+            "mean_us_per_invocation": 69.0553617477417
+          }
+        ]
+      },
+      "candidate_median_us": {
+        "1": 65.73773384094238,
+        "2": 66.29104137420654,
+        "4": 67.2215986251831,
+        "8": 68.08784008026123,
+        "16": 69.0553617477417
+      },
+      "selected_warps": 4,
+      "search_speedup_vs_four_warps": 1.0,
+      "gpu_before": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "36",
+        "power_W": "60.84"
+      },
+      "gpu_after": {
+        "uuid": "GPU-8e98a7a3-27fc-5dc2-9294-3033328821ad",
+        "name": "NVIDIA GeForce RTX 4090",
+        "driver": "580.76.05",
+        "temperature_C": "35",
+        "power_W": "58.55"
+      },
+      "environment_file_sha256": "d8242ac285faa08b7b2a17ad211d644bd6e5a006c4a6e19401f2a1b195460199",
+      "note": "Search estimates only; selected policy is not yet independently validated/benchmarked"
+    }
+  ],
+  "case_result_sha256": {
+    "outputs/day11/warp_tuning_v1/cases/float16_m1_h768/20261027T130618957609Z/result.json": "f094bfae30256a096180c60b4616975b1df0ec49bd68616a46074a0955cd2cc9",
+    "outputs/day11/warp_tuning_v1/cases/float16_m1_h1024/20261027T130625711290Z/result.json": "38b44c318b6b182fd0e02f24a026a833eef59c9fd222f784d544ecbafafddfc6",
+    "outputs/day11/warp_tuning_v1/cases/float16_m1_h2560/20261027T130632296561Z/result.json": "8f8a34285c6ee2fa6077449f2a2919d27af72c20e90a3a27857277169f0aa437",
+    "outputs/day11/warp_tuning_v1/cases/float16_m1_h4096/20261027T130639177162Z/result.json": "876739a30307260cef79b1baeb425cce93ebe5026a2ae7c0fb5e73f9729f52dc",
+    "outputs/day11/warp_tuning_v1/cases/float16_m32_h768/20261027T130646354342Z/result.json": "4f42f29a81f41436498ace9ccb0a267da7ace953ced52c3a40d9298c01554bc2",
+    "outputs/day11/warp_tuning_v1/cases/float16_m32_h1024/20261027T130652907742Z/result.json": "82440775d2bbd041dcf9bc637eeb2dbdc07b5ac2be2e332fd1c4348f2a7e1dfc",
+    "outputs/day11/warp_tuning_v1/cases/float16_m32_h2560/20261027T130659195305Z/result.json": "b6caab1bfd45237044198b50710cbcab7ebb5811c3ead22763483234cdfbabbc",
+    "outputs/day11/warp_tuning_v1/cases/float16_m32_h4096/20261027T130705923189Z/result.json": "bde7dd2b0753fb9548f33bdd2ca040a66a0f693ab145d5efcf3a1f977721cd05",
+    "outputs/day11/warp_tuning_v1/cases/float16_m2048_h768/20261027T130713110288Z/result.json": "a3c0fc4181743b3b45b7e20b482ebeca5b99b427acb758193e826d7904205139",
+    "outputs/day11/warp_tuning_v1/cases/float16_m2048_h1024/20261027T130727835748Z/result.json": "e4b0a58de13d2dc035d76332bcabca270d91472fa2e47257b9f64e9a84a53b36",
+    "outputs/day11/warp_tuning_v1/cases/float16_m2048_h2560/20261027T130746266065Z/result.json": "bc8d0738286140a9d0f606d89707555afd94a31844f4c2b4105994f4a2088b94",
+    "outputs/day11/warp_tuning_v1/cases/float16_m2048_h4096/20261027T130827078494Z/result.json": "8b38c9ed34df099d402af01f4c39ade34289c4329700da5101495b888f12a57d",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h768/20261027T131035211478Z/result.json": "9a64a09ee73d7ebaff1dfba4acab7638ea56788c1d10b3e03cf8452c4936917d",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h1024/20261027T131041608184Z/result.json": "53dadca18f9a64ebd7bac314047e9365498d7e709d068de54890e8d02020d33c",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h2560/20261027T131048183938Z/result.json": "02a6162e47f6c4a295b63e3ef649b87f64d0f4aaefd65e29df1c8835d60fee7e",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m1_h4096/20261027T131054948650Z/result.json": "21e73fd70ae3ba4e8f5ce788b259ddde1ad84324119e2ca0ed2ccb0e2fcbee7f",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h768/20261027T131101637520Z/result.json": "8889c62fd1ca33dc6115d671014886077aea42f5f3c4ca1150c81ffe539a2219",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h1024/20261027T131107787018Z/result.json": "9815a69ac2729e193878db123248a4ee24b0880e75441149741b098a3c6ecb23",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h2560/20261027T131114283820Z/result.json": "90a7886f05b23c33c0974c39b6d18df070cd1357dd7696bf214044fb95be539b",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m32_h4096/20261027T131121059411Z/result.json": "9ca174a435db3e0b2572adbe2893c157ca241df55009964670e4bcdc4f00a2d9",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h768/20261027T131127695249Z/result.json": "101ccbd47fd6fabccb147a8c12271dd7e16e06c93a7469ba078cefa1b936f267",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h1024/20261027T131142105710Z/result.json": "0440bfa8f2d87c572f6363c7502fdd8bbbc0a5cafc776e4f9db04a61b586faf4",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h2560/20261027T131200382048Z/result.json": "2cfd0d7e112a9e99c9d37385f6bfa6739d09d9ec703446b0a89fd3a3259d9e4a",
+    "outputs/day11/warp_tuning_v1/cases/bfloat16_m2048_h4096/20261027T131241763867Z/result.json": "5cb0d232dfaf67f526cb160104031e45ed6559269818fbc765c05eb4ead47f27"
+  },
+  "selected_policy_sha256": "c75cc7f40cd44bff3f05a81782903e4683187d4005469152d488b5b6c072501e",
+  "candidate_random_checks": 1200,
+  "candidate_boundary_checks": 480,
+  "timing_batches": 600,
+  "note": "Search estimates, not confirmed performance gains"
+}
